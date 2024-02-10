@@ -6,7 +6,7 @@ module Base
 		also the first fixer seems gain more effective.
     **/
 
-  	fixing Fix Mustang66 Hood {
+  	fixing Fix Mustang66 Hood Welding {
 	   Require : ATAMustang66Hood2Item3;ATAMustang66Hood2Item3,
 	   ConditionModifier : 0.8,
 	   
