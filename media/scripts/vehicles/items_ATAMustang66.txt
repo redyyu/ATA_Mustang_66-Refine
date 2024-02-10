@@ -1,0 +1,256 @@
+module Autotsar
+{
+    imports
+    {
+        Base
+    }
+    
+/* Spawn */ 
+
+    item ATATuningFordMustang {
+        Weight = 0.1,
+        Type = Literature,
+        DisplayName = Autotsar Tuning Atelier,
+        Icon = ATATuningMagUniverseIcon,
+        TeachedRecipes = Basic Tuning;ATAMustangRecipes;Make Mustang66 Bullbar;Make Mustang66 Roof Light,
+        ReplaceOnUse = ATATuningFordMustang,
+        Tooltip = Tooltip_item_ATATuningFordMustang,
+        StaticModel = Autotsar.ATATuningMagUniverse_Reading,
+        WorldStaticModel = Autotsar.ATATuningMagUniverse_Ground,
+    }
+    
+
+/* BUMPERS */
+
+    model ATAMustang66BumperWorld {
+        mesh = WorldItems/ATA_Datsun_Mustang_Items|Bullbar_front,
+        texture = WorldItems/ATA_Mustang_bumpers,
+        scale = 0.5,
+    }
+    
+    item ATAMustang66BumperItem {
+        DisplayCategory = Tuning,
+        Weight = 4.0,
+        Type = Normal,
+        DisplayName = Mustang66 Front Bumper,
+        Icon = ATAMustang66Bumper,
+        VehicleType = 3,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        WorldStaticModel = Autotsar.ATAMustang66BumperWorld,
+    }
+
+    recipe Cut Mustang66 Front Bumper {
+       ATAMustang66BumperItem=1,
+       BlowTorch=4,
+       keep WeldingMask,
+       Result:MetalPipe=3,
+       Time:350.0,
+       Category:Welding,
+       SkillRequired:MetalWelding=2,
+       OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn: false,
+    }
+
+    model ATAMustang66BumperRearWorld {
+        mesh = WorldItems/ATA_Datsun_Mustang_Items|Bullbar_Rear1,
+        texture = WorldItems/ATA_Mustang_bumpers,
+        scale = 0.5,
+    }
+    
+    item ATAMustang66BumperRearItem {
+        DisplayCategory = Tuning,
+        Weight = 15.0,
+        Type = Normal,
+        DisplayName = Mustang66 Rear Bumper,
+        Icon = ATAMustang66Bumper,
+        VehicleType = 3,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        WorldStaticModel = Autotsar.ATAMustang66BumperRearWorld,
+    }
+
+    recipe Cut Mustang66 Rear Bumper {
+       ATAMustang66BumperRearItem=1,
+       BlowTorch=4,
+       keep WeldingMask,
+       Result:MetalPipe=3,
+       Time:350.0,
+       Category:Welding,
+       SkillRequired:MetalWelding=2,
+       OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn: false,
+    }
+
+    item ATAMustang66BullbarItem {
+        DisplayCategory = Tuning,
+        Weight = 10.0,
+        Type = Normal,
+        DisplayName = Mustang66 Bullbar,
+        Icon = ATABullbar3Item,
+        ConditionMax = 100,
+        ChanceToSpawnDamaged = 25,
+        MechanicsItem = TRUE,
+        Tooltip = Tooltip_item_tuning,
+        WorldStaticModel = ATA2.ATABullbar3World,
+    }
+
+	recipe Make Mustang66 Bullbar {
+		MetalPipe = 10,
+		Screws = 4,
+        BlowTorch = 7,
+        keep WeldingMask,
+        Result: ATAMustang66BullbarItem,
+        Time: 350.0,
+        Category: Tuning,
+        SkillRequired: MetalWelding=6,
+        OnGiveXP: Recipe.OnGiveXP.MetalWelding25, /* 10 15 20 25 */
+        NeedToBeLearn: true,
+    }
+
+    recipe Cut Mustang66 Bullbar {
+       ATAMustang66BullbarItem=1,
+       BlowTorch=7,
+       keep WeldingMask,
+       Result:MetalPipe=6,
+       Time:350.0,
+       Category:Welding,
+       SkillRequired:MetalWelding=2,
+       OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn: false,
+    }
+
+
+/* Hoods */
+
+    model ATAMustang66Hood2World {
+        mesh = WorldItems/ATA_Datsun_Mustang_Items|EngineDoor2,
+        texture = ATAMustang66/vehicle_0,
+        scale = 0.5,
+    }
+
+    item ATAMustang66Hood2Item3 {
+        DisplayCategory = Tuning,
+        Weight = 15.0,
+        Type = Normal,
+        DisplayName = Mustang66 Ram Air Hood,
+        Icon = EngineDoor,
+        VehicleType = 3,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        WorldStaticModel = Autotsar.ATAMustang66Hood2World,
+    }
+
+    model ATAMustang66Hood3World {
+        mesh = WorldItems/ATA_Datsun_Mustang_Items|EngineDoor3,
+        texture = ATAMustang66/vehicle_0,
+        scale = 0.5,
+    }
+    
+    item ATAMustang66Hood3Item3 {
+        DisplayCategory = Tuning,
+        Weight = 15.0,
+        Type = Normal,
+        DisplayName = Mustang66 Mongoose Hood,
+        Icon = EngineDoor,
+        VehicleType = 3,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        WorldStaticModel = Autotsar.ATAMustang66Hood3World,
+    }
+
+    recipe Cut Mustang66 Hood {
+       ATAMustang66Hood2Item3/ATAMustang66Hood3Item3,
+       BlowTorch=4,
+       keep WeldingMask,
+       Result:SheetMetal=6,
+       Time:350.0,
+       Category:Welding,
+       SkillRequired:MetalWelding=2,
+       OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+    }
+
+    model ATAMustang66TrunkDoorWorld {
+        mesh = WorldItems/ATA_Datsun_Mustang_Items|TrunkDoor2,
+        texture = ATAMustang66/vehicle_0,
+        scale = 0.5,
+    }
+    
+    item ATAMustang66TrunkDoor3 {
+        DisplayCategory = Tuning,
+        Weight = 15.0,
+        Type = Normal,
+        DisplayName = Mustang66 Trunk Lid,
+        Icon = EngineDoor,
+        VehicleType = 3,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        WorldStaticModel = Autotsar.ATAMustang66TrunkDoorWorld,
+    }
+
+    recipe Cut Mustang66 Trunk Lid {
+       ATAMustang66TrunkDoor3,
+       BlowTorch=4,
+       keep WeldingMask,
+       Result:SheetMetal=5,
+       Time:350.0,
+       Category:Welding,
+       SkillRequired:MetalWelding=2,
+       OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+    }
+
+
+/* RoofLight */
+    
+    item ATAMustang66RoofLightItem {
+        DisplayCategory = Tuning,
+        Weight = 2.0,
+        Type = Normal,
+        DisplayName = Mustang66 Roof Light Item,
+        Icon = ATAFrontRoofLightItem,
+        ChanceToSpawnDamaged = 25,
+        ConditionMax = 100,
+        MechanicsItem = TRUE,
+        Tooltip = Tooltip_item_tuning,
+        WorldStaticModel = ATA2.ATAFrontRoofLightWorld,
+    }
+
+    recipe Make Mustang66 Roof Light Item {
+		MetalPipe = 2,
+        LightBulb = 4,
+		Screws = 10,
+        BlowTorch = 4,
+        keep WeldingMask,
+        Result: ATAMustang66RoofLightItem,
+        Time: 200.0,
+        Category: Tuning,
+        SkillRequired: MetalWelding=4,
+        OnGiveXP: Recipe.OnGiveXP.MetalWelding25, /* 10 15 20 25 */
+        NeedToBeLearn: true,
+    }
+
+    recipe Cut Mustang66 Roof Light Item {
+        ATAMustang66RoofLightItem=1,
+        BlowTorch=3,
+        keep WeldingMask,
+        Result:MetalPipe=1,
+        Time:200.0,
+        Category:Welding,
+        SkillRequired:MetalWelding=2,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        NeedToBeLearn: false,
+    }
+
+}
