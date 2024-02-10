@@ -120,7 +120,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2Bumper"] = {
             },
             skills = {
                 Mechanics = 4,
-                MetalWelding = 6,
+                MetalWelding = 7,
             },
             recipes = {"Intermediate Mechanics", carRecipe},
             time = 60, 
@@ -203,7 +203,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2BumperRear"] = {
             },
             skills = {
                 Mechanics = 4,
-                MetalWelding = 4,
+                MetalWelding = 7,
             },
             recipes = {"Intermediate Mechanics", carRecipe},
             time = 60, 
