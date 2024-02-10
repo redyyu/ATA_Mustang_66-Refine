@@ -12,7 +12,7 @@ module Autotsar
         Type = Literature,
         DisplayName = Autotsar Tuning Atelier,
         Icon = ATATuningMagUniverseIcon,
-        TeachedRecipes = Basic Tuning;ATAMustangRecipes;Make Mustang66 Bullbar;Make Mustang66 Roof Light,
+        TeachedRecipes = Basic Tuning;ATAMustangRecipes;Make Mustang66 Bullbar;Make Mustang66 Roof Light Item,
         ReplaceOnUse = ATATuningFordMustang,
         Tooltip = Tooltip_item_ATATuningFordMustang,
         StaticModel = Autotsar.ATATuningMagUniverse_Reading,
