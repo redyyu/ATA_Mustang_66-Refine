@@ -512,15 +512,12 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWheels"] = {
             sound = "ATA2InstallWheelChain",
             use = { 
                 ATAProtectionWheelsChain = 1,
-                BlowTorch = 4,
             },
-            tools = { 
-                bodylocation = "Base.WeldingMask", 
+            tools = {
                 primary = "Base.Wrench",
             },
             skills = {
-                Mechanics = 2,
-                MetalWelding = 3,
+                Mechanics = 3,
             },
             recipes = {"Basic Tuning"},
             requireInstalled = {"TireFrontLeft", "TireFrontRight", "TireRearLeft", "TireRearRight"},
@@ -528,18 +525,14 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWheels"] = {
         },
         uninstall = {
             sound = "ATA2InstallWheelChain",
-            use = {
-                BlowTorch=4,
-            },
             tools = {
-                bodylocation = "Base.WeldingMask",
-                both = "Base.Crowbar",
+                primary = "Base.Wrench",
             },
             skills = {
-                MetalWelding = 2,
+                Mechanics = 3,
             },
             result = {
-                UnusableMetal=2,
+                ATAProtectionWheelsChain = 1,
             },
             time = 40,
         }
