@@ -192,7 +192,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2BumperRear"] = {
         icon = "media/ui/tuning2/datsun_bumper_3.png",
         name = "IGUI_ATA2_Bumper_Rear_Handmade",
         category = "Bumpers",
-        protection = {"TrunkDoor"},
+        protection = {"TrunkDoor", "TruckBed"},
         install = {
             weight = "auto",
             animation = "ATA_PickLock",
@@ -530,6 +530,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWheels"] = {
         protection = {"TireFrontLeft", "TireFrontRight", "TireRearLeft", "TireRearRight"}, 
         install = { 
             sound = "ATA2InstallWheelChain",
+            transmitFirstItemCondition = true,
             use = { 
                 ATAProtectionWheelsChain = 1,
             },
@@ -545,6 +546,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWheels"] = {
         },
         uninstall = {
             sound = "ATA2InstallWheelChain",
+            transmitFirstItemCondition = true,
             tools = {
                 primary = "Base.Wrench",
             },
