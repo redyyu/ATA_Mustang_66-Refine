@@ -10,8 +10,8 @@ module Autotsar
     item ATATuningFordMustang {
         Weight = 0.1,
         Type = Literature,
-        DisplayName = Autotsar Tuning Atelier,
-        DisplayCategory = Literature,
+        DisplayName = Autotsar Tuning - Ford Mustang 66,
+        DisplayCategory = SkillBook,
         Icon = ATATuningMagUniverseIcon,
         TeachedRecipes = Basic Tuning;ATAMustangRecipes,
         ReplaceOnUse = ATATuningFordMustang,
