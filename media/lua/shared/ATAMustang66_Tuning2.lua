@@ -243,8 +243,8 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontLeft"] = {
             area = "SeatFrontLeft",
             weight = "auto",
             use = {
-                MetalBar = 4,
-                SmallSheetMetal = 2,
+                MetalPipe = 4,
+                SmallSheetMetal = 1,
                 SheetMetal = 1,
                 BlowTorch = 4,
                 Screws = 5,
@@ -254,6 +254,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontLeft"] = {
                 primary = "Base.Wrench",
             },
             skills = {
+                Mechanics = 2,
                 MetalWelding = 3,
             },
             recipes = {"Advanced Mechanics", carRecipe},
@@ -263,16 +264,12 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontLeft"] = {
         uninstall = {
             area = "SeatFrontLeft",
             animation = "ATA_IdleLeverOpenMid",
-            use = {
-                BlowTorch=4,
-            },
             tools = {
-                bodylocation = "Base.WeldingMask",
                 both = "Base.Crowbar",
             },
             recipes = {"Advanced Mechanics"},
             skills = {
-                MetalWelding = 2,
+                Mechanics = 2,
             },
             result = "auto",
             time = 40,
@@ -299,9 +296,8 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshield"] = {
             weight = "auto",
             use = {
                 MetalPipe = 2,
-                SmallSheetMetal = 4,
-                SheetMetal = 1,
-                MetalBar = 4,
+                SmallSheetMetal = 2,
+                MetalBar = 10,
                 Screws = 8,
                 BlowTorch = 8,
             },
@@ -310,6 +306,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshield"] = {
                 primary = "Base.Screwdriver",
             },
             skills = {
+                Mechanics = 3,
                 MetalWelding = 4,
             },
             recipes = {"Advanced Mechanics", carRecipe},
@@ -319,16 +316,12 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshield"] = {
         uninstall = {
             area = "TireFrontLeft",
             animation = "ATA_IdleLeverOpenMid",
-            use = {
-                BlowTorch=4,
-            },
             tools = {
-                bodylocation = "Base.WeldingMask",
                 both = "Base.Crowbar",
             },
             recipes = {"Advanced Mechanics"},
             skills = {
-                MetalWelding = 2,
+                Mechanics = 2,
             },
             result = "auto",
             time = 40,
@@ -346,10 +339,8 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshieldRear"] = {
             weight = "auto",
             area = "TireRearRight",
             use = {
-                MetalPipe = 2,
-                SmallSheetMetal = 4,
-                SheetMetal = 1,
-                MetalBar = 4,
+                MetalPipe = 4,
+                SheetMetal = 2,
                 Screws = 8,
                 BlowTorch = 8,
             },
@@ -357,6 +348,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshieldRear"] = {
                 bodylocation = "Base.WeldingMask",
             },
             skills = {
+                Mechanics = 3,
                 MetalWelding = 4,
             },
             recipes = {"Advanced Mechanics", carRecipe},
@@ -366,16 +358,12 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshieldRear"] = {
         uninstall = {
             area = "TireRearRight",
             animation = "ATA_IdleLeverOpenMid",
-            use = {
-                BlowTorch=4,
-            },
             tools = {
-                bodylocation = "Base.WeldingMask",
                 both = "Base.Crowbar",
             },
             recipes = {"Advanced Mechanics"},
             skills = {
-                MetalWelding = 2,
+                Mechanics = 2,
             },
             result = "auto",
             time = 40,

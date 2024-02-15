@@ -11,6 +11,7 @@ module Autotsar
         Weight = 0.1,
         Type = Literature,
         DisplayName = Autotsar Tuning Atelier,
+        DisplayCategory = Literature,
         Icon = ATATuningMagUniverseIcon,
         TeachedRecipes = Basic Tuning;ATAMustangRecipes,
         ReplaceOnUse = ATATuningFordMustang,
