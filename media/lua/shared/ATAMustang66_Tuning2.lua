@@ -238,30 +238,33 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontLeft"] = {
         modelList = {"StaticPart", "StaticPart2"},
         category = "Protection",
         protection = {"WindowFrontLeft"},
+        disableOpenWindowFromSeat = "SeatFrontLeft",
         install = {
+            area = "SeatFrontLeft",
             weight = "auto",
             use = {
-                SmallSheetMetal = 3,
-                SheetMetal = 2,
-                MetalBar=5,
-                Screws=5,
-                BlowTorch = 10,
+                MetalBar = 4,
+                SmallSheetMetal = 2,
+                SheetMetal = 1,
+                BlowTorch = 4,
+                Screws = 5,
             },
             tools = {
                 bodylocation = "Base.WeldingMask",
                 primary = "Base.Wrench",
             },
             skills = {
-                MetalWelding = 5,
+                MetalWelding = 3,
             },
             recipes = {"Advanced Mechanics", carRecipe},
             requireInstalled = {"WindowFrontLeft"},
             time = 65,
         },
         uninstall = {
+            area = "SeatFrontLeft",
             animation = "ATA_IdleLeverOpenMid",
             use = {
-                BlowTorch=5,
+                BlowTorch=4,
             },
             tools = {
                 bodylocation = "Base.WeldingMask",
@@ -279,7 +282,10 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontLeft"] = {
 
 NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontRight"] = copy(NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontLeft"])
 NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontRight"].Default.protection = {"WindowFrontRight"}
+NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontRight"].Default.disableOpenWindowFromSeat = "SeatFrontRight"
 NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontRight"].Default.install.requireInstalled = {"WindowFrontRight"}
+NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontRight"].Default.install.area = "SeatFrontRight"
+NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontRight"].Default.uninstall.area = "SeatFrontRight"
 
 
 NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshield"] = {
@@ -292,9 +298,11 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshield"] = {
             area = "TireFrontLeft",
             weight = "auto",
             use = {
-                MetalPipe = 7,
-                SheetMetal=2,
-                Screws=6,
+                MetalPipe = 2,
+                SmallSheetMetal = 4,
+                SheetMetal = 1,
+                MetalBar = 4,
+                Screws = 8,
                 BlowTorch = 8,
             },
             tools = {
@@ -310,7 +318,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshield"] = {
         },
         uninstall = {
             area = "TireFrontLeft",
-            animation = "ATA_Crowbar_DoorLeft",
+            animation = "ATA_IdleLeverOpenMid",
             use = {
                 BlowTorch=4,
             },
@@ -338,9 +346,12 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshieldRear"] = {
             weight = "auto",
             area = "TireRearRight",
             use = {
-                MetalPipe = 8,
+                MetalPipe = 2,
+                SmallSheetMetal = 4,
+                SheetMetal = 1,
+                MetalBar = 4,
                 Screws = 8,
-                BlowTorch = 5,
+                BlowTorch = 8,
             },
             tools = {
                 bodylocation = "Base.WeldingMask",
@@ -355,12 +366,19 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshieldRear"] = {
         uninstall = {
             area = "TireRearRight",
             animation = "ATA_IdleLeverOpenMid",
+            use = {
+                BlowTorch=4,
+            },
             tools = {
+                bodylocation = "Base.WeldingMask",
                 both = "Base.Crowbar",
             },
             recipes = {"Advanced Mechanics"},
+            skills = {
+                MetalWelding = 2,
+            },
             result = "auto",
-            time = 65,
+            time = 40,
         }
     }
 }
