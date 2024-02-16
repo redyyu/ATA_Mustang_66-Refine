@@ -235,15 +235,14 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontLeft"] = {
         icon = "media/ui/tuning2/protection_window_side.png",
         modelList = {"StaticPart", "StaticPart2"},
         category = "Protection",
-        protection = {"DoorFrontLeft", "WindowFrontLeft"},
+        protection = {"WindowFrontLeft"},
         disableOpenWindowFromSeat = "SeatFrontLeft",
         install = {
             area = "SeatFrontLeft",
             weight = "auto",
             use = {
                 MetalPipe = 4,
-                SmallSheetMetal = 1,
-                SheetMetal = 1,
+                SmallSheetMetal = 3,
                 BlowTorch = 4,
                 Screws = 5,
             },
@@ -276,7 +275,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontLeft"] = {
 }
 
 NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontRight"] = copy(NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontLeft"])
-NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontRight"].Default.protection = {"DoorFrontRight", "WindowFrontRight"}
+NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontRight"].Default.protection = {"WindowFrontRight"}
 NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontRight"].Default.disableOpenWindowFromSeat = "SeatFrontRight"
 NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontRight"].Default.install.requireInstalled = {"WindowFrontRight"}
 NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontRight"].Default.install.area = "SeatFrontRight"
@@ -338,7 +337,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshieldRear"] = {
             area = "TireRearRight",
             use = {
                 MetalPipe = 4,
-                SheetMetal = 2,
+                SheetMetal = 1,
                 Screws = 10,
                 BlowTorch = 8,
             },
