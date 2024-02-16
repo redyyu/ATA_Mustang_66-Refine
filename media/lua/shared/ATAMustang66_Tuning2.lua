@@ -30,7 +30,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2Bumper"] = {
             transmitFirstItemCondition = true,
             use = {
                 Autotsar__ATAMustang66BumperItem = 1,
-                Screws=1,
+                Screws=5,
             },
             tools = {
                 primary = "Base.Wrench",
@@ -71,7 +71,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2Bumper"] = {
             transmitFirstItemCondition = true,
             use = {
                 Autotsar__ATAMustang66BullbarItem = 1,
-                Screws=2,
+                Screws=10,
             },
             tools = {
                 primary = "Base.Wrench",
@@ -95,7 +95,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2Bumper"] = {
             transmitConditionOnFirstItem = true,
             result = {
                 Autotsar__ATAMustang66BullbarItem = 1,
-                Screws=1,
+                Screws=5,
             },
             time = 30,
         }
@@ -114,7 +114,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2Bumper"] = {
                 SheetMetal = 2,
                 SmallSheetMetal = 4,
                 BlowTorch = 10,
-                Screws=3,
+                Screws=15,
             },
             tools = {
                 bodylocation = "Base.WeldingMask",
@@ -130,7 +130,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2Bumper"] = {
         uninstall = {
             animation = "ATA_Crowbar_DoorLeft",
             use = {
-                BlowTorch=4,
+                BlowTorch=5,
             },
             tools = {
                 bodylocation = "Base.WeldingMask",
@@ -158,7 +158,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2BumperRear"] = {
             transmitFirstItemCondition = true,
             use = {
                 Autotsar__ATAMustang66BumperRearItem = 1,
-                Screws=1,
+                Screws=5,
             },
             tools = {
                 primary = "Base.Wrench",
@@ -198,7 +198,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2BumperRear"] = {
                 MetalPipe = 5,
                 MetalBar=2,
                 BlowTorch = 6,
-                Screws=2,
+                Screws=10,
             },
             tools = {
                 bodylocation = "Base.WeldingMask",
@@ -214,7 +214,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2BumperRear"] = {
         uninstall = {
             animation = "ATA_Crowbar_DoorLeft",
             use = {
-                BlowTorch=4,
+                BlowTorch=3,
             },
             tools = {
                 bodylocation = "Base.WeldingMask",
@@ -245,7 +245,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontLeft"] = {
                 SmallSheetMetal = 1,
                 SheetMetal = 1,
                 BlowTorch = 4,
-                Screws = 1,
+                Screws = 5,
             },
             tools = {
                 bodylocation = "Base.WeldingMask",
@@ -296,7 +296,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshield"] = {
                 MetalPipe = 2,
                 SmallSheetMetal = 2,
                 MetalBar = 10,
-                Screws = 2,
+                Screws = 10,
                 BlowTorch = 8,
             },
             tools = {
@@ -339,7 +339,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshieldRear"] = {
             use = {
                 MetalPipe = 4,
                 SheetMetal = 2,
-                Screws = 2,
+                Screws = 10,
                 BlowTorch = 8,
             },
             tools = {
@@ -401,7 +401,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2InteractiveTrunkRoofRack"] = {
                 MetalPipe = 4,
                 SheetMetal = 7,
                 MetalBar=4,
-                Screws=2,
+                Screws=10,
                 BlowTorch = 10,
             },
             tools = {
@@ -418,7 +418,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2InteractiveTrunkRoofRack"] = {
         uninstall = {
             animation = "ATA_IdleLeverOpenHigh",
             use = {
-                BlowTorch=4,
+                BlowTorch=5,
             },
             tools = {
                 bodylocation = "Base.WeldingMask",
@@ -444,7 +444,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2VisualSkirtsSide"] = {
                 MetalPipe = 2,
                 SheetMetal = 2,
                 MetalBar=4,
-                Screws=1,
+                Screws=10,
                 BlowTorch = 5,
             },
             tools = {
@@ -486,7 +486,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2RoofLightFront"] = {
             use = {
                 MetalPipe = 2,
                 LightBulb = 6,
-		        Screws = 2,
+		        Screws = 10,
                 BlowTorch = 6,
             },
             tools = {
@@ -503,7 +503,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2RoofLightFront"] = {
         uninstall = {
             area = "ATARoof",
             use = {
-                BlowTorch=4,
+                BlowTorch=3,
             },
             tools = {
                 bodylocation = "Base.WeldingMask",
