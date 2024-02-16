@@ -30,7 +30,48 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2Bumper"] = {
             transmitFirstItemCondition = true,
             use = {
                 Autotsar__ATAMustang66BumperItem = 1,
-                Screws=5,
+                Screws=1,
+            },
+            tools = {
+                primary = "Base.Wrench",
+            },
+            skills = {
+                Mechanics = 3,
+            },
+            recipes = {"Advanced Mechanics"},
+            time = 15, 
+        },
+        uninstall = {
+            weight = "auto",
+            animation = "ATA_PickLock",
+            tools = {
+                primary = "Base.Wrench",
+            },
+            skills = {
+                Mechanics = 3,
+            },
+            recipes = {"Advanced Mechanics"},
+            transmitConditionOnFirstItem = true,
+            result = {
+                Autotsar__ATAMustang66BumperItem = 1,
+            },
+            time = 15,
+        }
+    },
+    Bumper2 = {
+        icon = "media/ui/tuning2/datsun_bumper_2.png",
+        name = "IGUI_ATA2_Bullbar",
+        category = "Bumpers",
+        secondModel = "Bumper2_light",
+        spawnChance = 40,
+        protection = {"HeadlightLeft", "HeadlightRight", "EngineDoor"},
+        install = {
+            weight = "auto",
+            animation = "ATA_PickLock",
+            transmitFirstItemCondition = true,
+            use = {
+                Autotsar__ATAMustang66BullbarItem = 1,
+                Screws=2,
             },
             tools = {
                 primary = "Base.Wrench",
@@ -48,57 +89,14 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2Bumper"] = {
                 primary = "Base.Wrench",
             },
             skills = {
-                Mechanics = 3,
+                Mechanics = 4,
             },
             recipes = {"Advanced Mechanics"},
             transmitConditionOnFirstItem = true,
             result = {
-                Autotsar__ATAMustang66BumperItem = 1,
+                Autotsar__ATAMustang66BullbarItem = 1,
+                Screws=1,
             },
-            time = 20,
-        }
-    },
-    Bumper2 = {
-        icon = "media/ui/tuning2/datsun_bumper_2.png",
-        name = "IGUI_ATA2_Bullbar",
-        category = "Bumpers",
-        secondModel = "Bumper2_light",
-        spawnChance = 10,
-        protection = {"HeadlightLeft", "HeadlightRight", "EngineDoor"},
-        install = {
-            weight = "auto",
-            animation = "ATA_PickLock",
-            use = {
-                MetalPipe = 4,
-                SmallSheetMetal = 2,
-		        Screws = 6,
-                BlowTorch = 5,
-            },
-            tools = {
-                bodylocation = "Base.WeldingMask",
-                primary = "Base.Wrench",
-            },
-            skills = {
-                Mechanics = 3,
-                MetalWelding = 6,
-            },
-            recipes = {"Advanced Mechanics", carRecipe},
-            time = 60, 
-        },
-        uninstall = {
-            animation = "ATA_Crowbar_DoorLeft",
-            use = {
-                BlowTorch=4,
-            },
-            tools = {
-                bodylocation = "Base.WeldingMask",
-                both = "Base.Crowbar",
-            },
-            recipes = {"Advanced Mechanics"},
-            skills = {
-                MetalWelding = 2,
-            },
-            result = "auto",
             time = 30,
         }
     },
@@ -116,14 +114,14 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2Bumper"] = {
                 SheetMetal = 2,
                 SmallSheetMetal = 4,
                 BlowTorch = 10,
-                Screws=10,
+                Screws=3,
             },
             tools = {
                 bodylocation = "Base.WeldingMask",
                 primary = "Base.Wrench",
             },
             skills = {
-                Mechanics = 4,
+                Mechanics = 6,
                 MetalWelding = 7,
             },
             recipes = {"Advanced Mechanics", carRecipe},
@@ -143,7 +141,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2Bumper"] = {
                 MetalWelding = 2,
             },
             result = "auto",
-            time = 30,
+            time = 60,
         }
     }
 }
@@ -160,7 +158,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2BumperRear"] = {
             transmitFirstItemCondition = true,
             use = {
                 Autotsar__ATAMustang66BumperRearItem = 1,
-                Screws=5,
+                Screws=1,
             },
             tools = {
                 primary = "Base.Wrench",
@@ -200,7 +198,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2BumperRear"] = {
                 MetalPipe = 5,
                 MetalBar=2,
                 BlowTorch = 6,
-                Screws=5,
+                Screws=2,
             },
             tools = {
                 bodylocation = "Base.WeldingMask",
@@ -247,7 +245,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindowFrontLeft"] = {
                 SmallSheetMetal = 1,
                 SheetMetal = 1,
                 BlowTorch = 4,
-                Screws = 5,
+                Screws = 1,
             },
             tools = {
                 bodylocation = "Base.WeldingMask",
@@ -298,7 +296,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshield"] = {
                 MetalPipe = 2,
                 SmallSheetMetal = 2,
                 MetalBar = 10,
-                Screws = 8,
+                Screws = 2,
                 BlowTorch = 8,
             },
             tools = {
@@ -341,7 +339,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshieldRear"] = {
             use = {
                 MetalPipe = 4,
                 SheetMetal = 2,
-                Screws = 8,
+                Screws = 2,
                 BlowTorch = 8,
             },
             tools = {
@@ -403,7 +401,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2InteractiveTrunkRoofRack"] = {
                 MetalPipe = 4,
                 SheetMetal = 7,
                 MetalBar=4,
-                Screws=4,
+                Screws=2,
                 BlowTorch = 10,
             },
             tools = {
@@ -446,7 +444,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2VisualSkirtsSide"] = {
                 MetalPipe = 2,
                 SheetMetal = 2,
                 MetalBar=4,
-                Screws=5,
+                Screws=1,
                 BlowTorch = 5,
             },
             tools = {
@@ -488,7 +486,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2RoofLightFront"] = {
             use = {
                 MetalPipe = 2,
                 LightBulb = 6,
-		        Screws = 10,
+		        Screws = 2,
                 BlowTorch = 6,
             },
             tools = {

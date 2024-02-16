@@ -5,7 +5,7 @@ module Autotsar
         Base
     }
     
-/* Spawn */ 
+    /* Spawn */ 
 
     item ATATuningFordMustang {
         Weight = 0.1,
@@ -21,14 +21,13 @@ module Autotsar
     }
     
 
-/* BUMPERS */
+    /* Bumpers and Bullbars */
 
     model ATAMustang66BumperWorld {
         mesh = WorldItems/ATA_Datsun_Mustang_Items|Bullbar_front,
         texture = WorldItems/ATA_Mustang_bumpers,
         scale = 0.5,
     }
-    
     item ATAMustang66BumperItem {
         DisplayCategory = Tuning,
         Weight = 4.0,
@@ -41,7 +40,6 @@ module Autotsar
         MechanicsItem = TRUE,
         WorldStaticModel = Autotsar.ATAMustang66BumperWorld,
     }
-
     recipe Cut Mustang66 Front Bumper {
        ATAMustang66BumperItem=1,
        BlowTorch=4,
@@ -60,7 +58,6 @@ module Autotsar
         texture = WorldItems/ATA_Mustang_bumpers,
         scale = 0.5,
     }
-    
     item ATAMustang66BumperRearItem {
         DisplayCategory = Tuning,
         Weight = 15.0,
@@ -73,7 +70,6 @@ module Autotsar
         MechanicsItem = TRUE,
         WorldStaticModel = Autotsar.ATAMustang66BumperRearWorld,
     }
-
     recipe Cut Mustang66 Rear Bumper {
        ATAMustang66BumperRearItem=1,
        BlowTorch=4,
@@ -87,8 +83,39 @@ module Autotsar
        NeedToBeLearn: false,
     }
 
+    model ATAMustang66BullbarWorld {
+        mesh = WorldItems/ATA_Datsun_Mustang_Items|Bullbar_light,
+        texture = WorldItems/ATA_Datsun_details,
+        scale = 0.5,
+    }
+    item ATAMustang66BullbarItem {
+        DisplayCategory = Tuning,
+        Weight = 10.0,
+        Type = Normal,
+        DisplayName = ATAMustang66BullbarItem,
+        Icon = ATAMustang66BullbarItem,
+        VehicleType = 3,
+        ConditionMax = 100,
+        ChanceToSpawnDamaged = 25,
+        MechanicsItem = TRUE,
+        Tooltip = Tooltip_item_tuning,
+        WorldStaticModel = Autotsar.ATAMustang66BullbarWorld,
+    }
+    recipe Cut ATAMustang66BullbarItem {
+       ATABullbar3Item=1,
+       BlowTorch=4,
+       keep WeldingMask,
+       Result:MetalPipe=6,
+       Time:350.0,
+       Category:Welding,
+       SkillRequired:MetalWelding=2,
+       OnCreate:Recipe.OnCreate.CutATAUnusableMetal,
+       OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+       NeedToBeLearn:false,
+    }
 
-/* Hoods */
+
+    /* Hoods */
 
     model ATAMustang66Hood2World {
         mesh = WorldItems/ATA_Datsun_Mustang_Items|EngineDoor2,

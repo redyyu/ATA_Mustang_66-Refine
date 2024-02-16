@@ -1,0 +1,8 @@
+Recipe_EN = {
+
+    /* Other translation is in tsarslib */
+
+    /************ Autotsar Tuning Atelier - Mustang 66 ************/
+    Recipe_Cut_ATAMustang66BullbarItem = "Fjord Mustard '66 - Cut Bullbar with lights",
+
+}

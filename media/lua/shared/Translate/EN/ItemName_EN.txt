@@ -1,0 +1,7 @@
+ItemName_EN = {
+    
+    /* Other translation is in tsarslib */
+
+    /************ Autotsar Tuning Atelier - Mustang 66 ************/
+    ItemName_Autotsar.ATAMustang66BullbarItem = "Fjord Mustard '66 - Bullbar with lights",
+}

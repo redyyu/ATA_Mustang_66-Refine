@@ -34,3 +34,15 @@ table.insert(ProceduralDistributions.list["CampingStoreBooks"].items, "Autotsar.
 table.insert(ProceduralDistributions.list["CampingStoreBooks"].items, 0.5);
 table.insert(ProceduralDistributions.list["JanitorMisc"].items, "Autotsar.ATATuningFordMustang");
 table.insert(ProceduralDistributions.list["JanitorMisc"].items, 0.5);
+
+-- ATAMustang66BullbarItem
+table.insert(ProceduralDistributions.list["CrateMechanics"].items, "Autotsar.ATAMustang66BullbarItem");
+table.insert(ProceduralDistributions.list["CrateMechanics"].items, 0.5);
+table.insert(ProceduralDistributions.list["GarageMechanics"].items, "Autotsar.ATAMustang66BullbarItem");
+table.insert(ProceduralDistributions.list["GarageMechanics"].items, 0.5);
+table.insert(ProceduralDistributions.list["MechanicShelfTools"].items, "Autotsar.ATAMustang66BullbarItem");
+table.insert(ProceduralDistributions.list["MechanicShelfTools"].items, 0.5);
+table.insert(ProceduralDistributions.list["MechanicShelfTools"].junk.items, "Autotsar.ATAMustang66BullbarItem");
+table.insert(ProceduralDistributions.list["MechanicShelfTools"].junk.items, 0.5);
+table.insert(ProceduralDistributions.list["MechanicShelfWheels"].items, "Autotsar.ATAMustang66BullbarItem");
+table.insert(ProceduralDistributions.list["MechanicShelfWheels"].items, 0.5);
