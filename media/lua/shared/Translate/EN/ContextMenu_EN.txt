@@ -1,0 +1,5 @@
+ContextMenu_EN = {
+  /* Other translation is in tsarslib */
+
+  ContextMenu_Vehicle_CLEAN_STRAYS = "Clean «STRAYS»",
+}

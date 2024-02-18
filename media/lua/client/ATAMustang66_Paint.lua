@@ -13,15 +13,21 @@ function ISVehicleMenu.FillMenuOutsideVehicle(player, context, vehicle, test)
     oldISVehicleMenu(player, context, vehicle, test)
     local playerObj = getSpecificPlayer(player)
     local playerInv = playerObj:getInventory()
-    local paintBrush = playerInv:getFirstTypeRecurse("Paintbrush")
-    if vehicle and paintBrush then
-        if (paintTable[vehicle:getScriptName()]) and (vehicle:getSkinIndex()%2) ~= 1 then
-            local paintCan = playerInv:getFirstTypeRecurse("PaintYellow")
-            if paintCan then
+    
+    if (paintTable[vehicle:getScriptName()]) then 
+        if (vehicle:getSkinIndex()%2) == 0 then
+            local paintBrush = playerInv:getFirstTypeRecurse("Paintbrush")
+            local paintCan = playerInv:getFirstTypeRecurse("PaintRed")
+            if vehicle and paintBrush and  paintCan then
                 context:addOption(getText("ContextMenu_Vehicle_STRAYS"), playerObj, paintBus, vehicle, vehicle:getSkinIndex()+1)
+            end
+        else
+            local paintBrush = playerInv:getFirstTypeRecurse("Sponge")
+            local paintCan = playerInv:getFirstTypeRecurse("Bleach")
+            if vehicle and paintBrush and  paintCan then
+                context:addOption(getText("ContextMenu_Vehicle_CLEAN_STRAYS"), playerObj, paintBus, vehicle, vehicle:getSkinIndex()-1)
             end
         end
     end
 end
-
 
