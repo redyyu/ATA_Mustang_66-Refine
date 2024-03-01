@@ -368,6 +368,47 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWindshieldRear"] = {
     }
 }
 
+NewCarTuningTable["ATAMustang66"].parts["ATA2RoofBase"] = {
+    Default = {
+        spawnChance = 10,
+        icon = "media/ui/tuning2/datsun_roof_light.png",
+        category = "Trunks",
+        install = {
+            area = "ATARoof",
+            use = {
+                MetalPipe = 8,
+                BlowTorch = 8,
+                Screws = 10,
+            },
+            tools = {
+                bodylocation = "Base.WeldingMask",
+                primary = "Base.Wrench",
+            },
+            skills = {
+                MetalWelding = 4,
+            },
+            recipes = {"Advanced Mechanics", carRecipe},
+            time = 65,
+        },
+        uninstall = {
+            area = "ATARoof",
+            use = {
+                BlowTorch=3,
+            },
+            tools = {
+                bodylocation = "Base.WeldingMask",
+                both = "Base.Crowbar",
+            },
+            skills = {
+                MetalWelding = 2,
+            },
+            result = 'auto',
+            requireUninstalled = {"ATARoofLightLeft", "ATARoofLightRight", "ATARoofLightFront", "ATARoofLightRear"},
+            time = 65,
+        }
+    }
+}
+
 NewCarTuningTable["ATAMustang66"].parts["ATA2InteractiveTrunkRoofRack"] = {
     ATARoofrack = {
         icon = "media/ui/tuning2/roof_rack_1.png",
@@ -474,49 +515,6 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2VisualSkirtsSide"] = {
     }
 }
 
-NewCarTuningTable["ATAMustang66"].parts["ATA2RoofLightFront"] = {
-    Default = {
-        spawnChance = 10,
-        icon = "media/ui/tuning2/datsun_roof_light.png",
-        modelList = {"SecondModel"},
-        category = "Visual",
-        install = {
-            area = "ATARoof",
-            use = {
-                MetalPipe = 2,
-                LightBulb = 6,
-		        Screws = 10,
-                BlowTorch = 6,
-            },
-            tools = {
-                bodylocation = "Base.WeldingMask",
-                primary = "Base.Wrench",
-            },
-            skills = {
-                Mechanics = 3,
-                MetalWelding = 4,
-            },
-            recipes = {"Advanced Mechanics", carRecipe},
-            time = 40,
-        },
-        uninstall = {
-            area = "ATARoof",
-            use = {
-                BlowTorch=3,
-            },
-            tools = {
-                bodylocation = "Base.WeldingMask",
-                both = "Base.Crowbar",
-            },
-            recipes = {"Advanced Mechanics"},
-            skills = {
-                MetalWelding = 2,
-            },
-            result = 'auto',
-            time = 30,
-        }
-    }
-}
 
 NewCarTuningTable["ATAMustang66"].parts["ATA2ProtectionWheels"] = {
     ATAProtection = {

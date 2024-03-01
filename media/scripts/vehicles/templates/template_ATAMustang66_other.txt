@@ -7,41 +7,143 @@ module Base
         texture = ATAMustang66/details,
         scale = 0.0041,
     }
-    model ATAMustang66_Roof_light_1
+    model ATAMustang66_Roof_base
     {
-        mesh = vehicles/Vehicles_ATAMustang66|Roof_light_1,
+        mesh = vehicles/Vehicles_ATAMustang66_Roof_Lights|roof_rails,
         shader = vehiclewheel,
         texture = ATAMustang66/details,
         scale = 0.0041,
     }
-    model ATAMustang66_Roof_light_2
+    model ATAMustang66_Roof_light_front_1
     {
-        mesh = vehicles/Vehicles_ATAMustang66|Roof_light_2,
+        mesh = vehicles/Vehicles_ATAMustang66_Roof_Lights|light_front_1,
+        shader = vehiclewheel,
+        texture = ATAMustang66/details,
+        scale = 0.0041,
+    }
+    model ATAMustang66_Roof_light_front_2 {
+        mesh = vehicles/Vehicles_ATAMustang66_Roof_Lights|light_front_2,
         shader = vehicle,
         scale = 0.0041,
     }
-    template vehicle ATAMustang66_other
+    model ATAMustang66_Roof_light_rear_1
     {
+        mesh = vehicles/Vehicles_ATAMustang66_Roof_Lights|light_rear_1,
+        shader = vehiclewheel,
+        texture = ATAMustang66/details,
+        scale = 0.0041,
+    }
+    model ATAMustang66_Roof_light_rear_2 {
+        mesh = vehicles/Vehicles_ATAMustang66_Roof_Lights|light_rear_2,
+        shader = vehicle,
+        scale = 0.0041,
+    }
+    model ATAMustang66_Roof_light_left_1
+    {
+        mesh = vehicles/Vehicles_ATAMustang66_Roof_Lights|light_left_1,
+        shader = vehiclewheel,
+        texture = ATAMustang66/details,
+        scale = 0.0041,
+    }
+    model ATAMustang66_Roof_light_left_2 {
+        mesh = vehicles/Vehicles_ATAMustang66_Roof_Lights|light_left_2,
+        shader = vehicle,
+        scale = 0.0041,
+    }
+    model ATAMustang66_Roof_light_right_1
+    {
+        mesh = vehicles/Vehicles_ATAMustang66_Roof_Lights|light_right_1,
+        shader = vehiclewheel,
+        texture = ATAMustang66/details,
+        scale = 0.0041,
+    }
+    model ATAMustang66_Roof_light_right_2 {
+        mesh = vehicles/Vehicles_ATAMustang66_Roof_Lights|light_right_2,
+        shader = vehicle,
+        scale = 0.0041,
+    }
+
+    template vehicle ATAMustang66_other {
+
         template = ATA2Visual/part/ATA2VisualSkirtsSide,
-        part ATA2VisualSkirtsSide 
-        {
+        part ATA2VisualSkirtsSide {
             model Default
             {
                 file = ATAMustang66_SkirtsSide,
             }
         }
-        template = ATA2RoofLights/part/ATA2RoofLightFront,
-        part ATA2RoofLightFront 
+
+        template = ATA2InteractiveTrunk/part/ATA2RoofBase,
+        part ATA2RoofBase 
         {
             model Default
             {
-                file = ATAMustang66_Roof_light_1,
+                file = ATAMustang66_Roof_base,
+            }
+        }
+
+        template = ATARoofLights,
+        part ATARoofLightLeft
+        {
+            model Default
+            {
+                file = ATAMustang66_Roof_light_left_1,
             }
             model SecondModel
             {
-                file = ATAMustang66_Roof_light_2,
+                file = ATAMustang66_Roof_light_left_2,
+            }
+            table install
+            {
+                requireInstalled = ATA2RoofBase,
             }
         }
+        part ATARoofLightRight
+        {
+            model Default
+            {
+                file = ATAMustang66_Roof_light_right_1,
+            }
+            model SecondModel
+            {
+                file = ATAMustang66_Roof_light_right_2,
+            }
+            table install
+            {
+                requireInstalled = ATA2RoofBase,
+            }
+        }
+        part ATARoofLightFront
+        {
+            model Default
+            {
+                file = ATAMustang66_Roof_light_front_1,
+            }
+            model SecondModel
+            {
+                file = ATAMustang66_Roof_light_front_2,
+            }
+            table install
+            {
+                requireInstalled = ATA2RoofBase,
+            }
+        }
+        part ATARoofLightRear
+        {
+            model Default
+            {
+                file = ATAMustang66_Roof_light_rear_1,
+            }
+            model SecondModel
+            {
+                file = ATAMustang66_Roof_light_rear_2,
+            }
+            table install
+            {
+                requireInstalled = ATA2RoofBase,
+            }
+        }
+
     }
 }
 
