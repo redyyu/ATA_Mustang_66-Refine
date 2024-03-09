@@ -1,0 +1,1 @@
+Tooltip_Vehicle_PAINT = "Use Paint Bucket to paint a new color for this Car."
