@@ -4,4 +4,8 @@ ItemName_EN = {
 
     /************ Autotsar Tuning Atelier - Mustang 66 ************/
     ItemName_Autotsar.ATAMustang66BullbarItem = "Fjord Mustard '66 - Bullbar with lights",
+    
+    ItemName_Autotsar.ATAMustang66REngineDoor3 = "Fjord Mustard '66 - Ram Air Hood",
+    ItemName_Autotsar.ATAMustang66MEngineDoor3 = "Fjord Mustard '66 - Mongoose Hood",
+    ItemName_Autotsar.ATAMustang66TrunkDoor3 = "Fjord Mustard '66 - Trunk Door Mod.",
 }

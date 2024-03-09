@@ -117,13 +117,13 @@ module Autotsar
 
     /* Hoods */
 
-    model ATAMustang66EngineDoor3_Ground {
+    model ATAMustang66REngineDoor3_Ground {
         mesh = WorldItems/ATA_Datsun_Mustang_Items|EngineDoor2,
         texture = ATAMustang66/vehicle_0,
         scale = 0.5,
     }
 
-    item ATAMustang66EngineDoor3 {
+    item ATAMustang66REngineDoor3 {
         DisplayCategory = Tuning,
         Weight = 15.0,
         Type = Normal,
@@ -133,16 +133,16 @@ module Autotsar
         ChanceToSpawnDamaged = 25,
         ConditionMax = 100,
         MechanicsItem = TRUE,
-        WorldStaticModel = Autotsar.ATAMustang66EngineDoor3_Ground,
+        WorldStaticModel = Autotsar.ATAMustang66REngineDoor3_Ground,
     }
 
-    model ATAMustang66HEngineDoor3_Ground {
+    model ATAMustang66MEngineDoor3_Ground {
         mesh = WorldItems/ATA_Datsun_Mustang_Items|EngineDoor3,
         texture = ATAMustang66/vehicle_0,
         scale = 0.5,
     }
     
-    item ATAMustang66HEngineDoor3 {
+    item ATAMustang66MEngineDoor3 {
         DisplayCategory = Tuning,
         Weight = 15.0,
         Type = Normal,
@@ -152,11 +152,11 @@ module Autotsar
         ChanceToSpawnDamaged = 25,
         ConditionMax = 100,
         MechanicsItem = TRUE,
-        WorldStaticModel = Autotsar.ATAMustang66HEngineDoor3_Ground,
+        WorldStaticModel = Autotsar.ATAMustang66MEngineDoor3_Ground,
     }
 
     recipe Cut Mustang66 Hood {
-       ATAMustang66EngineDoor3/ATAMustang66HEngineDoor3,
+       ATAMustang66REngineDoor3/ATAMustang66MEngineDoor3,
        BlowTorch=4,
        keep WeldingMask,
        Result:SheetMetal=6,

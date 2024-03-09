@@ -77,8 +77,8 @@ module Base
             }
             table ATA2ItemSpawnChance 
             {
-                1 = 70,
-                2 = 30,
+                1 = 60,
+                2 = 40,
             }
             table ATA2ItemToModel 
             {
@@ -151,7 +151,7 @@ module Base
         template = EngineDoor,
         part EngineDoor
         {
-            itemType = Base.EngineDoor;Autotsar.ATAMustang66EngineDoor3;Autotsar.ATAMustang66HEngineDoor3,
+            itemType = Base.EngineDoor;Autotsar.ATAMustang66REngineDoor;Autotsar.ATAMustang66MEngineDoor,
             model Hood1
             {
                 file = ATAMustang66_EngineDoor1,
@@ -166,14 +166,14 @@ module Base
             }
             table ATA2ItemSpawnChance 
             {
-                1 = 60,
-                2 = 20,
-                3 = 20,
+                1 = 40,
+                2 = 30,
+                3 = 30,
             }
             table ATA2ItemToModel 
             {
-                ATAMustang66EngineDoor3 = Hood2,
-                ATAMustang66HEngineDoor3 = Hood3,
+                ATAMustang66REngineDoor3 = Hood2,
+                ATAMustang66MEngineDoor3 = Hood3,
                 Another = Hood1,
             }
             anim Close
