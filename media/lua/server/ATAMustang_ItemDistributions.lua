@@ -46,3 +46,28 @@ table.insert(ProceduralDistributions.list["MechanicShelfTools"].junk.items, "Aut
 table.insert(ProceduralDistributions.list["MechanicShelfTools"].junk.items, 0.5);
 table.insert(ProceduralDistributions.list["MechanicShelfWheels"].items, "Autotsar.ATAMustang66BullbarItem");
 table.insert(ProceduralDistributions.list["MechanicShelfWheels"].items, 0.5);
+
+
+-- ATAMustang66EngineDoor3
+table.insert(ProceduralDistributions.list["CrateMechanics"].items, "Autotsar.ATAMustang66EngineDoor3");
+table.insert(ProceduralDistributions.list["CrateMechanics"].items, 0.5);
+table.insert(ProceduralDistributions.list["GarageMechanics"].items, "Autotsar.ATAMustang66EngineDoor3");
+table.insert(ProceduralDistributions.list["GarageMechanics"].items, 0.5);
+table.insert(ProceduralDistributions.list["MechanicShelfTools"].items, "Autotsar.ATAMustang66EngineDoor3");
+table.insert(ProceduralDistributions.list["MechanicShelfTools"].items, 0.5);
+table.insert(ProceduralDistributions.list["MechanicShelfTools"].junk.items, "Autotsar.ATAMustang66EngineDoor3");
+table.insert(ProceduralDistributions.list["MechanicShelfTools"].junk.items, 0.5);
+table.insert(ProceduralDistributions.list["MechanicShelfWheels"].items, "Autotsar.ATAMustang66EngineDoor3");
+table.insert(ProceduralDistributions.list["MechanicShelfWheels"].items, 0.5);
+
+-- ATAMustang66HEngineDoor3
+table.insert(ProceduralDistributions.list["CrateMechanics"].items, "Autotsar.ATAMustang66HEngineDoor3");
+table.insert(ProceduralDistributions.list["CrateMechanics"].items, 0.5);
+table.insert(ProceduralDistributions.list["GarageMechanics"].items, "Autotsar.ATAMustang66HEngineDoor3");
+table.insert(ProceduralDistributions.list["GarageMechanics"].items, 0.5);
+table.insert(ProceduralDistributions.list["MechanicShelfTools"].items, "Autotsar.ATAMustang66HEngineDoor3");
+table.insert(ProceduralDistributions.list["MechanicShelfTools"].items, 0.5);
+table.insert(ProceduralDistributions.list["MechanicShelfTools"].junk.items, "Autotsar.ATAMustang66HEngineDoor3");
+table.insert(ProceduralDistributions.list["MechanicShelfTools"].junk.items, 0.5);
+table.insert(ProceduralDistributions.list["MechanicShelfWheels"].items, "Autotsar.ATAMustang66HEngineDoor3");
+table.insert(ProceduralDistributions.list["MechanicShelfWheels"].items, 0.5);

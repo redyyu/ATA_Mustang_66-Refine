@@ -7,7 +7,7 @@ module Base
     **/
 
   	fixing Fix Mustang66 Hood Welding {
-		Require : ATAMustang66Hood2Item3;ATAMustang66Hood3Item3,
+		Require : ATAMustang66EngineDoor3;ATAMustang66HEngineDoor3,
 		ConditionModifier : 0.8,
 		
 		Fixer : SheetMetal; MetalWelding=4;Mechanics=3,
@@ -15,7 +15,7 @@ module Base
 	}
 
 	fixing Fix Mustang66 Hood {
-		Require : ATAMustang66Hood2Item3;ATAMustang66Hood3Item3,
+		Require : ATAMustang66EngineDoor3;ATAMustang66HEngineDoor3,
 		GlobalItem : Screws=8,
 		ConditionModifier : 0.5,
 

@@ -23,7 +23,7 @@ module Autotsar
 
     /* Bumpers and Bullbars */
 
-    model ATAMustang66BumperWorld {
+    model ATAMustang66Bumper_Ground {
         mesh = WorldItems/ATA_Datsun_Mustang_Items|Bullbar_front,
         texture = WorldItems/ATA_Mustang_bumpers,
         scale = 0.5,
@@ -38,7 +38,7 @@ module Autotsar
         ChanceToSpawnDamaged = 25,
         ConditionMax = 100,
         MechanicsItem = TRUE,
-        WorldStaticModel = Autotsar.ATAMustang66BumperWorld,
+        WorldStaticModel = Autotsar.ATAMustang66Bumper_Ground,
     }
     recipe Cut Mustang66 Front Bumper {
        ATAMustang66BumperItem=1,
@@ -53,7 +53,7 @@ module Autotsar
        NeedToBeLearn: false,
     }
 
-    model ATAMustang66BumperRearWorld {
+    model ATAMustang66BumperRear_Ground {
         mesh = WorldItems/ATA_Datsun_Mustang_Items|Bullbar_Rear1,
         texture = WorldItems/ATA_Mustang_bumpers,
         scale = 0.5,
@@ -68,7 +68,7 @@ module Autotsar
         ChanceToSpawnDamaged = 25,
         ConditionMax = 100,
         MechanicsItem = TRUE,
-        WorldStaticModel = Autotsar.ATAMustang66BumperRearWorld,
+        WorldStaticModel = Autotsar.ATAMustang66BumperRear_Ground,
     }
     recipe Cut Mustang66 Rear Bumper {
        ATAMustang66BumperRearItem=1,
@@ -83,7 +83,7 @@ module Autotsar
        NeedToBeLearn: false,
     }
 
-    model ATAMustang66BullbarWorld {
+    model ATAMustang66Bullbar_Ground {
         mesh = WorldItems/ATA_Datsun_Mustang_Items|Bullbar_light,
         texture = WorldItems/ATA_Datsun_details,
         scale = 0.5,
@@ -99,7 +99,7 @@ module Autotsar
         ChanceToSpawnDamaged = 25,
         MechanicsItem = TRUE,
         Tooltip = Tooltip_item_tuning,
-        WorldStaticModel = Autotsar.ATAMustang66BullbarWorld,
+        WorldStaticModel = Autotsar.ATAMustang66Bullbar_Ground,
     }
     recipe Cut ATAMustang66BullbarItem {
        ATABullbar3Item=1,
@@ -117,13 +117,13 @@ module Autotsar
 
     /* Hoods */
 
-    model ATAMustang66Hood2World {
+    model ATAMustang66EngineDoor3_Ground {
         mesh = WorldItems/ATA_Datsun_Mustang_Items|EngineDoor2,
         texture = ATAMustang66/vehicle_0,
         scale = 0.5,
     }
 
-    item ATAMustang66Hood2Item3 {
+    item ATAMustang66EngineDoor3 {
         DisplayCategory = Tuning,
         Weight = 15.0,
         Type = Normal,
@@ -133,16 +133,16 @@ module Autotsar
         ChanceToSpawnDamaged = 25,
         ConditionMax = 100,
         MechanicsItem = TRUE,
-        WorldStaticModel = Autotsar.ATAMustang66Hood2World,
+        WorldStaticModel = Autotsar.ATAMustang66EngineDoor3_Ground,
     }
 
-    model ATAMustang66Hood3World {
+    model ATAMustang66HEngineDoor3_Ground {
         mesh = WorldItems/ATA_Datsun_Mustang_Items|EngineDoor3,
         texture = ATAMustang66/vehicle_0,
         scale = 0.5,
     }
     
-    item ATAMustang66Hood3Item3 {
+    item ATAMustang66HEngineDoor3 {
         DisplayCategory = Tuning,
         Weight = 15.0,
         Type = Normal,
@@ -152,11 +152,11 @@ module Autotsar
         ChanceToSpawnDamaged = 25,
         ConditionMax = 100,
         MechanicsItem = TRUE,
-        WorldStaticModel = Autotsar.ATAMustang66Hood3World,
+        WorldStaticModel = Autotsar.ATAMustang66HEngineDoor3_Ground,
     }
 
     recipe Cut Mustang66 Hood {
-       ATAMustang66Hood2Item3/ATAMustang66Hood3Item3,
+       ATAMustang66EngineDoor3/ATAMustang66HEngineDoor3,
        BlowTorch=4,
        keep WeldingMask,
        Result:SheetMetal=6,
@@ -168,7 +168,7 @@ module Autotsar
        NeedToBeLearn:false,
     }
 
-    model ATAMustang66TrunkDoorWorld {
+    model ATAMustang66TrunkDoor_Ground {
         mesh = WorldItems/ATA_Datsun_Mustang_Items|TrunkDoor2,
         texture = ATAMustang66/vehicle_0,
         scale = 0.5,
@@ -184,7 +184,7 @@ module Autotsar
         ChanceToSpawnDamaged = 25,
         ConditionMax = 100,
         MechanicsItem = TRUE,
-        WorldStaticModel = Autotsar.ATAMustang66TrunkDoorWorld,
+        WorldStaticModel = Autotsar.ATAMustang66TrunkDoor_Ground,
     }
 
     recipe Cut Mustang66 Trunk Lid {

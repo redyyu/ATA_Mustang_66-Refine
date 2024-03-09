@@ -151,7 +151,7 @@ module Base
         template = EngineDoor,
         part EngineDoor
         {
-            itemType = Base.EngineDoor;Autotsar.ATAMustang66Hood2Item;Autotsar.ATAMustang66Hood3Item,
+            itemType = Base.EngineDoor;Autotsar.ATAMustang66EngineDoor3;Autotsar.ATAMustang66HEngineDoor3,
             model Hood1
             {
                 file = ATAMustang66_EngineDoor1,
@@ -172,8 +172,8 @@ module Base
             }
             table ATA2ItemToModel 
             {
-                ATAMustang66Hood2Item3 = Hood2,
-                ATAMustang66Hood3Item3 = Hood3,
+                ATAMustang66EngineDoor3 = Hood2,
+                ATAMustang66HEngineDoor3 = Hood3,
                 Another = Hood1,
             }
             anim Close
