@@ -23,7 +23,7 @@ PaintVehicle.bhs = " <RGB:" .. getCore():getBadHighlitedColor():getR() .. "," ..
 
 
 PaintVehicle.paintBus = function(playerObj, vehicle, newSkinIndex, paintBrush, paintCan, uses)
-    if paintBrush and paintCan and paintCan:getUses() >= uses then
+    if paintBrush and paintCan and paintCan:getCurrentUses() * 10 >= uses then
         ISWorldObjectContextMenu.transferIfNeeded(playerObj, paintBrush)
         ISWorldObjectContextMenu.transferIfNeeded(playerObj, paintCan)
         ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, "Engine"))
@@ -76,16 +76,19 @@ PaintVehicle.doFillMenuOutsideVehicle = function(playerObj, context, vehicle, te
                 writeOpt.toolTip:setName(getText("ContextMenu_Vehicle_STRAYS"))
                 local desc_write = ""
                 if paintBrush then
-                    desc_write = desc_write .. PaintVehicle.ghs .. getText("Tooltip_Item_Paintbrush") .. " 1/1 <LINE> "
+                    desc_write = desc_write .. PaintVehicle.ghs .. getText("Tooltip_Item_Paintbrush") .. " <LINE> "
                 else
-                    desc_write = desc_write ..  PaintVehicle.bhs .. getText("Tooltip_Item_Paintbrush") .. " 0/1 <LINE> "
+                    desc_write = desc_write ..  PaintVehicle.bhs .. getText("Tooltip_Item_Paintbrush") .. " <LINE> "
                     writeOpt.onSelect = nil
                     writeOpt.notAvailable = true
                 end
-                if paintCan and paintCan:getCurrentUses() > 1 then
-                    desc_write = desc_write .. PaintVehicle.ghs..getText("Tooltip_Item_PaintRed").." <LINE> "
+                local have_uses = 0
+                
+                if paintCan then
+                    have_uses = math.floor(paintCan:getCurrentUses() * 10) -- less 1 unit, otherwise will be the other item as empty.
+                    desc_write = desc_write .. PaintVehicle.ghs..getText("Tooltip_Item_PaintRed") .. " ".. have_uses .."/1 unit <LINE> "
                 else
-                    desc_write = desc_write .. PaintVehicle.bhs..getText("Tooltip_Item_PaintRed").." <LINE> "
+                    desc_write = desc_write .. PaintVehicle.bhs..getText("Tooltip_Item_PaintRed") .. " ".. have_uses .."/1 unit <LINE> "
                     writeOpt.onSelect = nil
                     writeOpt.notAvailable = true
                 end
@@ -104,16 +107,16 @@ PaintVehicle.doFillMenuOutsideVehicle = function(playerObj, context, vehicle, te
                 cleanOpt.toolTip:setName(getText("ContextMenu_Vehicle_CLEAN_STRAYS"))
                 local desc_clean = ""
                 if sponge then
-                    desc_clean = desc_clean ..  PaintVehicle.ghs .. getText("Tooltip_Item_Sponge") .. " 1/1 <LINE> "
+                    desc_clean = desc_clean ..  PaintVehicle.ghs .. getText("Tooltip_Item_Sponge") .. " <LINE> "
                 else
-                    desc_clean = desc_clean ..  PaintVehicle.bhs .. getText("Tooltip_Item_Sponge") .. " 0/1 <LINE> "
+                    desc_clean = desc_clean ..  PaintVehicle.bhs .. getText("Tooltip_Item_Sponge") .. " <LINE> "
                     cleanOpt.onSelect = nil
                     cleanOpt.notAvailable = true
                 end
                 if bleach and bleach:getCurrentUses() > 0 then
-                    desc_clean = desc_clean .. PaintVehicle.ghs..getText("Tooltip_Item_Bleach").." <LINE>"
+                    desc_clean = desc_clean .. PaintVehicle.ghs..getText("Tooltip_Item_Bleach") .. " <LINE> "
                 else
-                    desc_clean = desc_clean .. PaintVehicle.bhs..getText("Tooltip_Item_Bleach").." <LINE>"
+                    desc_clean = desc_clean .. PaintVehicle.bhs..getText("Tooltip_Item_Bleach") .. " <LINE> "
                     cleanOpt.onSelect = nil
                     cleanOpt.notAvailable = true
                 end
@@ -135,9 +138,9 @@ PaintVehicle.doFillMenuOutsideVehicle = function(playerObj, context, vehicle, te
             local tooltip_desc = getText("Tooltip_Vehicle_PAINT") .. "<LINE><LINE>"
 
             if paintBrush then
-                tooltip_desc = tooltip_desc .. PaintVehicle.ghs .. getText("Tooltip_Item_Paintbrush") .. " 1/1 <LINE>"
+                tooltip_desc = tooltip_desc .. PaintVehicle.ghs .. getText("Tooltip_Item_Paintbrush") .. " <LINE>"
             else
-                tooltip_desc = tooltip_desc .. PaintVehicle.bhs .. getText("Tooltip_Item_Paintbrush") .. " 0/1 <LINE>"
+                tooltip_desc = tooltip_desc .. PaintVehicle.bhs .. getText("Tooltip_Item_Paintbrush") .. " <LINE>"
                 if not PaintVehicle.cheat then
                     opt.onSelect = nil
                     opt.notAvailable = true
@@ -145,16 +148,17 @@ PaintVehicle.doFillMenuOutsideVehicle = function(playerObj, context, vehicle, te
             end
 
             local have_uses = 0
-            if PaintCan then
-                have_uses = math.floor(paintCan:getUses() * 10)
+            if paintCan then
+                have_uses = math.floor(paintCan:getCurrentUses() * 10)
+                print(paintCan:getCurrentUses())
             end
-
+            
             if paintCan and have_uses >= uses then
                 tooltip_desc = tooltip_desc .. PaintVehicle.ghs .. getText("Tooltip_Item_"..k)
-                tooltip_desc = tooltip_desc .. " " .. tostring(have_uses) .."/" .. tostring(uses) .. "<LINE>"
+                tooltip_desc = tooltip_desc .. " " .. have_uses .."/" .. uses .. " unit <LINE>"
             else
                 tooltip_desc = tooltip_desc .. PaintVehicle.bhs .. getText("Tooltip_Item_"..k)
-                tooltip_desc = tooltip_desc .. " " .. tostring(have_uses) .."/" .. tostring(uses) .. "<LINE>"
+                tooltip_desc = tooltip_desc .. " " .. have_uses .."/" .. uses .. " unit <LINE>"
                 if not PaintVehicle.cheat then
                     opt.onSelect = nil
                     opt.notAvailable = true
