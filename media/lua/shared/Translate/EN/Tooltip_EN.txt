@@ -21,5 +21,4 @@ Tooltip_EN = {
     Tooltip_Item_PaintPurple = "Purple"
     Tooltip_Item_PaintTurquoise = "Turquoise"
     Tooltip_Item_PaintWhite = "PaintWhite"
-    Tooltip_Item_PaintWhite = "PaintWhite"
 }
