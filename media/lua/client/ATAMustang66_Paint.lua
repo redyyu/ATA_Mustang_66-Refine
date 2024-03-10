@@ -16,32 +16,42 @@ local paintTable = {
     ["PaintLightBrown"] = 16,
 }
 
+local PaintVehicle = {}
+PaintVehicle.cheat = false or getDebug()
+PaintVehicle.ghs = " <RGB:" .. getCore():getGoodHighlitedColor():getR() .. "," .. getCore():getGoodHighlitedColor():getG() .. "," .. getCore():getGoodHighlitedColor():getB() .. "> "
+PaintVehicle.bhs = " <RGB:" .. getCore():getBadHighlitedColor():getR() .. "," .. getCore():getBadHighlitedColor():getG() .. "," .. getCore():getBadHighlitedColor():getB() .. "> "
 
-local paintBus = function(playerObj, vehicle, newSkinIndex, paintBrush, paintCan, uses)
-    if paintBrush and paintCan and paintCan:getUses() * 10 >= uses then
+
+PaintVehicle.paintBus = function(playerObj, vehicle, newSkinIndex, paintBrush, paintCan, uses)
+    if paintBrush and paintCan and paintCan:getUses() >= uses then
         ISWorldObjectContextMenu.transferIfNeeded(playerObj, paintBrush)
         ISWorldObjectContextMenu.transferIfNeeded(playerObj, paintCan)
         ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, "Engine"))
-        ISTimedActionQueue.add(ISPaintBus:new(playerObj, vehicle, "Engine", newSkinIndex))
-        for i=0, uses - 1 do
-            paintCan:Use()
-        end
+        ISTimedActionQueue.add(ISPaintVehicleAction:new(playerObj, vehicle, "Engine", newSkinIndex, paintCan, uses, 50))
     end
 end
 
-local cleanBus = function(playerObj, vehicle, newSkinIndex, sponge, bleach)
-    if sponge and bleach and bleach:getType() == "Bleach" and bleach.ThirstChange > 10 then
+PaintVehicle.paintWords = function(playerObj, vehicle, newSkinIndex, paintBrush, paintCan)
+    if paintBrush and paintCan then
+        ISWorldObjectContextMenu.transferIfNeeded(playerObj, paintBrush)
+        ISWorldObjectContextMenu.transferIfNeeded(playerObj, paintCan)
+        ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, "Engine"))
+        ISTimedActionQueue.add(ISPaintVehicleAction:new(playerObj, vehicle, "Engine", newSkinIndex, paintCan))
+    end
+end
+
+PaintVehicle.cleanWords = function(playerObj, vehicle, newSkinIndex, sponge, bleach)
+    if sponge and bleach then
         ISWorldObjectContextMenu.transferIfNeeded(playerObj, sponge)
         ISWorldObjectContextMenu.transferIfNeeded(playerObj, bleach)
         ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, "Engine"))
-        ISTimedActionQueue.add(ISPaintBus:new(playerObj, vehicle, "Engine", newSkinIndex))
-        bleach.ThirstChange = bleach.ThirstChange - 10
+        ISTimedActionQueue.add(ISPaintVehicleAction:new(playerObj, vehicle, "Engine", newSkinIndex, bleach))
     end
 end
 
 
 
-local function fillMenuOutsideVehicle(playerObj, context, vehicle, test)
+PaintVehicle.doFillMenuOutsideVehicle = function(playerObj, context, vehicle, test)
     local playerInv = playerObj:getInventory()
     
     if (vehicleTable[vehicle:getScriptName()]) then 
@@ -57,25 +67,57 @@ local function fillMenuOutsideVehicle(playerObj, context, vehicle, test)
             local paintBrush = playerInv:getFirstTypeRecurse("Paintbrush")
             local paintCan = playerInv:getFirstTypeRecurse("PaintRed")
             writeOpt = subMenu:addOptionOnTop(getText("ContextMenu_Vehicle_STRAYS"), 
-                                              playerObj, paintBus, vehicle, vehicle:getSkinIndex()+1, paintBrush, paintCan, 1)
-            if vehicle and paintBrush and paintCan and paintCan:getUses() * 10 >= 1 then
+                                              playerObj, PaintVehicle.paintWords, vehicle, 
+                                              vehicle:getSkinIndex()+1, paintBrush, paintCan)
+            if vehicle and paintBrush and paintCan then
                 subMenuAvailable = true
             else
                 writeOpt.toolTip = ISWorldObjectContextMenu.addToolTip()
                 writeOpt.toolTip:setName(getText("ContextMenu_Vehicle_STRAYS"))
-                writeOpt.toolTip.description = ISBuildMenu.bhs .. getText("Tooltip_Vehicle_NEED_PAINTBRUSH_PAINTRED")
+                local desc_write = ""
+                if paintBrush then
+                    desc_write = desc_write .. PaintVehicle.ghs .. getText("Tooltip_Item_Paintbrush") .. " 1/1 <LINE> "
+                else
+                    desc_write = desc_write ..  PaintVehicle.bhs .. getText("Tooltip_Item_Paintbrush") .. " 0/1 <LINE> "
+                    writeOpt.onSelect = nil
+                    writeOpt.notAvailable = true
+                end
+                if paintCan and paintCan:getCurrentUses() > 1 then
+                    desc_write = desc_write .. PaintVehicle.ghs..getText("Tooltip_Item_PaintRed").." <LINE> "
+                else
+                    desc_write = desc_write .. PaintVehicle.bhs..getText("Tooltip_Item_PaintRed").." <LINE> "
+                    writeOpt.onSelect = nil
+                    writeOpt.notAvailable = true
+                end
+                writeOpt.toolTip.description = desc_write
             end
         else
             local sponge = playerInv:getFirstTypeRecurse("Sponge")
             local bleach = playerInv:getFirstTypeRecurse("Bleach")
+
             cleanOpt = subMenu:addOptionOnTop(getText("ContextMenu_Vehicle_CLEAN_STRAYS"),
-                                              playerObj, cleanBus, vehicle, vehicle:getSkinIndex()-1, sponge, bleach)
-            if vehicle and sponge and bleach and bleach.ThirstChange > 10 then
+                                              playerObj, PaintVehicle.cleanWords, vehicle, vehicle:getSkinIndex()-1, sponge, bleach)
+            if vehicle and sponge and bleach then
                 subMenuAvailable = true
             else
-                writeOpt.toolTip = ISWorldObjectContextMenu.addToolTip()
-                writeOpt.toolTip:setName(getText("ContextMenu_Vehicle_CLEAN_STRAYS"))
-                writeOpt.toolTip.description = ISBuildMenu.bhs .. getText("Tooltip_Vehicle_NEED_SPONGE_BLEACH")
+                cleanOpt.toolTip = ISWorldObjectContextMenu.addToolTip()
+                cleanOpt.toolTip:setName(getText("ContextMenu_Vehicle_CLEAN_STRAYS"))
+                local desc_clean = ""
+                if sponge then
+                    desc_clean = desc_clean ..  PaintVehicle.ghs .. getText("Tooltip_Item_Sponge") .. " 1/1 <LINE> "
+                else
+                    desc_clean = desc_clean ..  PaintVehicle.bhs .. getText("Tooltip_Item_Sponge") .. " 0/1 <LINE> "
+                    cleanOpt.onSelect = nil
+                    cleanOpt.notAvailable = true
+                end
+                if bleach and bleach:getCurrentUses() > 0 then
+                    desc_clean = desc_clean .. PaintVehicle.ghs..getText("Tooltip_Item_Bleach").." <LINE>"
+                else
+                    desc_clean = desc_clean .. PaintVehicle.bhs..getText("Tooltip_Item_Bleach").." <LINE>"
+                    cleanOpt.onSelect = nil
+                    cleanOpt.notAvailable = true
+                end
+                cleanOpt.toolTip.description = desc_clean
             end
         end
 
@@ -84,17 +126,19 @@ local function fillMenuOutsideVehicle(playerObj, context, vehicle, test)
         for k, v in pairs(paintTable) do
             local paintBrush = playerInv:getFirstTypeRecurse("Paintbrush")
             local paintCan = playerInv:getFirstTypeRecurse(k)
-            local uses = 5
-            local opt = subMenu:addOption(getText(k), playerObj, paintBus, vehicle, v, paintBrush, paintCan, uses)
+            local uses = 10
+            
+            local opt = subMenu:addOption(getText(k), playerObj, PaintVehicle.paintBus, vehicle, v, paintBrush, paintCan, uses)
             opt.toolTip = ISWorldObjectContextMenu.addToolTip()
             opt.toolTip:setName(getText(k))
-            opt.toolTip.description = getText("Tooltip_Vehicle_PAINT")
+            
+            local tooltip_desc = getText("Tooltip_Vehicle_PAINT") .. "<LINE><LINE>"
 
             if paintBrush then
-                opt.toolTip.description = opt.toolTip.description .. "<LINE>" .. ISBuildMenu.ghs .. getText('Paintbrush') .. " 1/1 <LINE> "
+                tooltip_desc = tooltip_desc .. PaintVehicle.ghs .. getText("Tooltip_Item_Paintbrush") .. " 1/1 <LINE>"
             else
-                opt.toolTip.description = opt.toolTip.description .. "<LINE>" .. ISBuildMenu.bhs .. getText('Paintbrush') .. " 0/1 <LINE> "
-                if not ISBuildMenu.cheat then
+                tooltip_desc = tooltip_desc .. PaintVehicle.bhs .. getText("Tooltip_Item_Paintbrush") .. " 0/1 <LINE>"
+                if not PaintVehicle.cheat then
                     opt.onSelect = nil
                     opt.notAvailable = true
                 end
@@ -102,24 +146,29 @@ local function fillMenuOutsideVehicle(playerObj, context, vehicle, test)
 
             local have_uses = 0
             if PaintCan then
-                have_uses = paintCan:getUses() * 10
+                have_uses = math.floor(paintCan:getUses() * 10)
             end
 
             if paintCan and have_uses >= uses then
-                opt.toolTip.description = opt.toolTip.description .. "<LINE>" .. ISBuildMenu.ghs .. getText(k) .. " "..paintCan:getUses().."/".. uses .." <LINE> "
+                tooltip_desc = tooltip_desc .. PaintVehicle.ghs .. getText("Tooltip_Item_"..k)
+                tooltip_desc = tooltip_desc .. " " .. tostring(have_uses) .."/" .. tostring(uses) .. "<LINE>"
             else
-                opt.toolTip.description = opt.toolTip.description .. "<LINE>" .. ISBuildMenu.bhs .. getText(k) .. " "..have_uses.."/".. uses .." <LINE> "
-                if not ISBuildMenu.cheat then
+                tooltip_desc = tooltip_desc .. PaintVehicle.bhs .. getText("Tooltip_Item_"..k)
+                tooltip_desc = tooltip_desc .. " " .. tostring(have_uses) .."/" .. tostring(uses) .. "<LINE>"
+                if not PaintVehicle.cheat then
                     opt.onSelect = nil
                     opt.notAvailable = true
                 end
             end
+
+            opt.toolTip.description = tooltip_desc
+
             if not opt.notAvailable then
                 subMenuAvailable = true
             end
         end
 
-        if not subMenuAvailable and not ISBuildMenu.cheat then
+        if not subMenuAvailable and not PaintVehicle.cheat then
             paintMenuOpt.notAvailable = true
         end
 
@@ -127,7 +176,7 @@ local function fillMenuOutsideVehicle(playerObj, context, vehicle, test)
 end
 
 
-local onfillMenuOutsideVehicleMenu = function(player, context, worldobjects, test)
+PaintVehicle.onfillMenuOutsideVehicleMenu = function(player, context, worldobjects, test)
     local playerObj = getSpecificPlayer(player)
     local vehicle = playerObj:getVehicle()
     if not vehicle then
@@ -150,7 +199,7 @@ local onfillMenuOutsideVehicleMenu = function(player, context, worldobjects, tes
             for _, sq in ipairs(sqs) do
                 vehicle = sq:getVehicleContainer()
                 if vehicle then
-                    return fillMenuOutsideVehicle(playerObj, context, vehicle, test)
+                    return PaintVehicle.doFillMenuOutsideVehicle(playerObj, context, vehicle, test)
                 end
             end
             return
@@ -158,10 +207,10 @@ local onfillMenuOutsideVehicleMenu = function(player, context, worldobjects, tes
         
         vehicle = IsoObjectPicker.Instance:PickVehicle(getMouseXScaled(), getMouseYScaled())
         if vehicle then
-            return fillMenuOutsideVehicle(playerObj, context, vehicle, test)
+            return PaintVehicle.doFillMenuOutsideVehicle(playerObj, context, vehicle, test)
         end
     end
 end
 
 
-Events.OnFillWorldObjectContextMenu.Add(onfillMenuOutsideVehicleMenu)
+Events.OnFillWorldObjectContextMenu.Add(PaintVehicle.onfillMenuOutsideVehicleMenu)
