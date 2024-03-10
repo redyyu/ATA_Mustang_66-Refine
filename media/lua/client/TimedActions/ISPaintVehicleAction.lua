@@ -53,7 +53,7 @@ function ISPaintVehicleAction:create()
     ISBaseTimedAction.create(self)
 end
 
-function ISPaintVehicleAction:new(character, vehicle, area, skinIndex, res, use_quantity, time)
+function ISPaintVehicleAction:new(character, vehicle, area, skinIndex, res, use_quantity)
     if type(character) == 'number' then
         character = getSpecificPlayer(character)
         -- getSpecificPlayer param as int (player num).
@@ -70,9 +70,7 @@ function ISPaintVehicleAction:new(character, vehicle, area, skinIndex, res, use_
     o.vehicle = vehicle
     o.area = area
     o.skinIndex = skinIndex
-    o.maxTime = time or 50
-	print('-----------------USES--------------------------')
-	print(res:getUses())
+    o.maxTime = o.use_quantity * 100
     return o
 end
 

@@ -5,19 +5,24 @@ local vehicleTable = {
 }
 
 local paintTable = {
-    ["PaintGreen"] = 0,
-    ["PaintRed"] = 2,
-    ["PaintBlue"] = 4,
-    ["PaintGrey"] = 6,
-    ["PaintBlack"] = 8,
-    ["PaintLightBlue"] = 10,
-    ["PaintCyan"] = 12,
-    ["PaintYellow"] = 14,
-    ["PaintLightBrown"] = 16,
+    ["PaintWhite"] = 0,
+    ["PaintGrey"] = 2,
+    ["PaintBlack"] = 4,
+    ["PaintPink"] = 6,
+    ["PaintRed"] = 8,
+    ["PaintPurple"] = 10,
+    ["PaintBlue"] = 12,
+    ["PaintLightBlue"] = 14,
+    ["PaintCyan"] = 16,
+    ["PaintTurquoise"] = 18,
+    ["PaintGreen"] = 20,
+    ["PaintLightBrown"] = 22,
+    ["PaintBrown"] = 24,
+    ["PaintYellow"] = 26,
+    ["PaintOrange"] = 28,
 }
 
 local PaintVehicle = {}
-PaintVehicle.cheat = false or getDebug()
 PaintVehicle.ghs = " <RGB:" .. getCore():getGoodHighlitedColor():getR() .. "," .. getCore():getGoodHighlitedColor():getG() .. "," .. getCore():getGoodHighlitedColor():getB() .. "> "
 PaintVehicle.bhs = " <RGB:" .. getCore():getBadHighlitedColor():getR() .. "," .. getCore():getBadHighlitedColor():getG() .. "," .. getCore():getBadHighlitedColor():getB() .. "> "
 
@@ -141,16 +146,13 @@ PaintVehicle.doFillMenuOutsideVehicle = function(playerObj, context, vehicle, te
                 tooltip_desc = tooltip_desc .. PaintVehicle.ghs .. getText("Tooltip_Item_Paintbrush") .. " <LINE>"
             else
                 tooltip_desc = tooltip_desc .. PaintVehicle.bhs .. getText("Tooltip_Item_Paintbrush") .. " <LINE>"
-                if not PaintVehicle.cheat then
-                    opt.onSelect = nil
-                    opt.notAvailable = true
-                end
+                opt.onSelect = nil
+                opt.notAvailable = true
             end
 
             local have_uses = 0
             if paintCan then
                 have_uses = math.floor(paintCan:getCurrentUses() * 10)
-                print(paintCan:getCurrentUses())
             end
             
             if paintCan and have_uses >= uses then
@@ -159,10 +161,8 @@ PaintVehicle.doFillMenuOutsideVehicle = function(playerObj, context, vehicle, te
             else
                 tooltip_desc = tooltip_desc .. PaintVehicle.bhs .. getText("Tooltip_Item_"..k)
                 tooltip_desc = tooltip_desc .. " " .. have_uses .."/" .. uses .. " unit <LINE>"
-                if not PaintVehicle.cheat then
-                    opt.onSelect = nil
-                    opt.notAvailable = true
-                end
+                opt.onSelect = nil
+                opt.notAvailable = true
             end
 
             opt.toolTip.description = tooltip_desc
@@ -172,7 +172,7 @@ PaintVehicle.doFillMenuOutsideVehicle = function(playerObj, context, vehicle, te
             end
         end
 
-        if not subMenuAvailable and not PaintVehicle.cheat then
+        if not subMenuAvailable then
             paintMenuOpt.notAvailable = true
         end
 
