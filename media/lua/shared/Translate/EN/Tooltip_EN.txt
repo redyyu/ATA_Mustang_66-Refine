@@ -1,8 +1,4 @@
 Tooltip_EN = {
-    Tooltip_Vehicle_PAINT = "Use Paint Bucket to paint a new color for this Car."
-    Tooltip_Vehicle_NEED_PAINTBRUSH_PAINTRED = "Need Paint Brush and Red Paint."
-    Tooltip_Vehicle_NEED_SPONGE_BLEACH = "Need Sponge and Bleach."
-
     Tooltip_Item_Sponge = "Sponge"
     Tooltip_Item_Bleach = "Bleach"
     Tooltip_Item_Paintbrush = "Paintbrush"

@@ -2,5 +2,5 @@ ContextMenu_EN = {
   /* Other translation is in tsarslib */
 
   ContextMenu_Vehicle_CLEAN_STRAYS = "Clean «STRAYS»",
-  ContextMenu_Vehicle_PAINT = "Paint The Car",
+  ContextMenu_Vehicle_PAINT = "Paint Vehicle",
 }
