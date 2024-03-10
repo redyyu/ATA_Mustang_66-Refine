@@ -61,7 +61,7 @@ PaintVehicle.doFillMenuOutsideVehicle = function(playerObj, context, vehicle, te
     local playerInv = playerObj:getInventory()
     local graffitiType = vehicleTable[vehicle:getScriptName()]
 
-    if (graffitiType) then 
+    if graffitiType then
         
         local paintMenuOpt = context:addOption(getText("ContextMenu_Vehicle_PAINT"), nil, nil)
         local subMenuAvailable = false
