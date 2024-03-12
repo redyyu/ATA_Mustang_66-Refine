@@ -15,7 +15,11 @@ end
 
 
 function ISPaintVehicleAction:start()
-    self:setActionAnim(CharacterActionAnims.Paint)
+    if self.is_clean then
+        self:setActionAnim(CharacterActionAnims.Pour)
+    else
+        self:setActionAnim(CharacterActionAnims.Paint)
+    end
     self:setOverrideHandModels("PaintBrush", nil)
 end
 
@@ -53,7 +57,7 @@ function ISPaintVehicleAction:create()
     ISBaseTimedAction.create(self)
 end
 
-function ISPaintVehicleAction:new(character, vehicle, area, skinIndex, res, use_quantity)
+function ISPaintVehicleAction:new(character, vehicle, area, skinIndex, res, use_quantity, is_clean)
     if type(character) == 'number' then
         character = getSpecificPlayer(character)
         -- getSpecificPlayer param as int (player num).
@@ -71,7 +75,6 @@ function ISPaintVehicleAction:new(character, vehicle, area, skinIndex, res, use_
     o.area = area
     o.skinIndex = skinIndex
     o.maxTime = o.use_quantity * 100
+    o.is_clean = is_clean
     return o
 end
-
-

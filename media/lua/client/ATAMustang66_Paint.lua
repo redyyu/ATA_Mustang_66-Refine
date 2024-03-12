@@ -42,7 +42,7 @@ PaintVehicle.paintWords = function(playerObj, vehicle, newSkinIndex, paintBrush,
         ISWorldObjectContextMenu.transferIfNeeded(playerObj, paintBrush)
         ISWorldObjectContextMenu.transferIfNeeded(playerObj, paintCan)
         ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, "Engine"))
-        ISTimedActionQueue.add(ISPaintVehicleAction:new(playerObj, vehicle, "Engine", newSkinIndex, paintCan))
+        ISTimedActionQueue.add(ISPaintVehicleAction:new(playerObj, vehicle, "Engine", newSkinIndex, paintCan, false))
     end
 end
 
@@ -51,7 +51,7 @@ PaintVehicle.cleanWords = function(playerObj, vehicle, newSkinIndex, sponge, ble
         ISWorldObjectContextMenu.transferIfNeeded(playerObj, sponge)
         ISWorldObjectContextMenu.transferIfNeeded(playerObj, bleach)
         ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, "Engine"))
-        ISTimedActionQueue.add(ISPaintVehicleAction:new(playerObj, vehicle, "Engine", newSkinIndex, bleach))
+        ISTimedActionQueue.add(ISPaintVehicleAction:new(playerObj, vehicle, "Engine", newSkinIndex, bleach, true))
     end
 end
 
