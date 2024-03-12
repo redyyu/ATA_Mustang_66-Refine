@@ -31,7 +31,7 @@ end
 function ISPaintVehicleAction:perform()
 	if self.resourceItem:getType() == 'Bleach' then
 		local bleach = self.resourceItem
-		-- DONT why add %5, but if NOT, will use whole bottle.
+		-- DONT KNOW why add %5, but if NOT, will use whole bottle.
 		bleach:setThirstChange(bleach:getThirstChange() + 0.05)
 		if bleach:getThirstChange() > -0.05 then
 			bleach:Use()

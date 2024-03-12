@@ -5,37 +5,37 @@ local vehicleTable = {
     ["Base.ATAMustang66Custom"] = "PaintRed",
 }
 
--- local paintTable = {
---     ["PaintWhite"] = 0,
---     ["PaintGrey"] = 2,
---     ["PaintBlack"] = 4,
---     ["PaintPink"] = 6,
---     ["PaintRed"] = 8,
---     ["PaintPurple"] = 10,
---     ["PaintBlue"] = 12,
---     ["PaintLightBlue"] = 14,
---     ["PaintCyan"] = 16,
---     ["PaintTurquoise"] = 18,
---     ["PaintGreen"] = 20,
---     ["PaintLightBrown"] = 22,
---     ["PaintBrown"] = 24,
---     ["PaintYellow"] = 26,
---     ["PaintOrange"] = 28,
--- }
+local paintTable = {
+    ["PaintWhite"] = 0,
+    ["PaintGrey"] = 2,
+    ["PaintBlack"] = 4,
+    ["PaintPink"] = 6,
+    ["PaintRed"] = 8,
+    ["PaintPurple"] = 10,
+    ["PaintBlue"] = 12,
+    ["PaintLightBlue"] = 14,
+    ["PaintCyan"] = 16,
+    ["PaintTurquoise"] = 18,
+    ["PaintGreen"] = 20,
+    ["PaintLightBrown"] = 22,
+    ["PaintBrown"] = 24,
+    ["PaintYellow"] = 26,
+    ["PaintOrange"] = 28,
+}
 
 local PaintVehicle = {}
 PaintVehicle.ghs = " <RGB:" .. getCore():getGoodHighlitedColor():getR() .. "," .. getCore():getGoodHighlitedColor():getG() .. "," .. getCore():getGoodHighlitedColor():getB() .. "> "
 PaintVehicle.bhs = " <RGB:" .. getCore():getBadHighlitedColor():getR() .. "," .. getCore():getBadHighlitedColor():getG() .. "," .. getCore():getBadHighlitedColor():getB() .. "> "
 
 
--- PaintVehicle.paintVehicle = function(playerObj, vehicle, newSkinIndex, paintBrush, paintCan, uses)
---     if paintBrush and paintCan and paintCan:getCurrentUses() * 10 >= uses then
---         ISWorldObjectContextMenu.transferIfNeeded(playerObj, paintBrush)
---         ISWorldObjectContextMenu.transferIfNeeded(playerObj, paintCan)
---         ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, "Engine"))
---         ISTimedActionQueue.add(ISPaintVehicleAction:new(playerObj, vehicle, "Engine", newSkinIndex, paintCan, uses, 50))
---     end
--- end
+PaintVehicle.paintVehicle = function(playerObj, vehicle, newSkinIndex, paintBrush, paintCan, uses)
+    if paintBrush and paintCan and paintCan:getCurrentUses() * 10 >= uses then
+        ISWorldObjectContextMenu.transferIfNeeded(playerObj, paintBrush)
+        ISWorldObjectContextMenu.transferIfNeeded(playerObj, paintCan)
+        ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, "Engine"))
+        ISTimedActionQueue.add(ISPaintVehicleAction:new(playerObj, vehicle, "Engine", newSkinIndex, paintCan, uses, 50))
+    end
+end
 
 PaintVehicle.paintWords = function(playerObj, vehicle, newSkinIndex, paintBrush, paintCan)
     if paintBrush and paintCan then
@@ -91,8 +91,8 @@ PaintVehicle.doFillMenuOutsideVehicle = function(playerObj, context, vehicle, te
                 end
                 local have_uses = 0
                 
-                if paintCan then
-                    have_uses = round(paintCan:getUsedDelta() * 10) -- less 1 unit, otherwise will be the other item as empty.
+                if paintCan then -- no need check usedDelta, because only use 1 unit, if don't have that, Paint Can will be the other item as empty.
+                    have_uses = round(paintCan:getUsedDelta() * 10)
                     desc_write = desc_write .. PaintVehicle.ghs..getText("Tooltip_Item_"..graffitiType) .. " ".. have_uses .."/1 unit <LINE> "
                 else
                     desc_write = desc_write .. PaintVehicle.bhs..getText("Tooltip_Item_"..graffitiType) .. " ".. have_uses .."/1 unit <LINE> "
@@ -107,7 +107,7 @@ PaintVehicle.doFillMenuOutsideVehicle = function(playerObj, context, vehicle, te
 
             cleanOpt = subMenu:addOptionOnTop(getText("ContextMenu_Vehicle_CLEAN_STRAYS"),
                                               playerObj, PaintVehicle.cleanWords, vehicle, vehicle:getSkinIndex()-1, sponge, bleach)
-            if vehicle and sponge and bleach then
+            if vehicle and sponge and bleach and bleach:getThirstChange() > 0.05 then
                 subMenuAvailable = true
             else
                 cleanOpt.toolTip = ISWorldObjectContextMenu.addToolTip()
@@ -120,7 +120,7 @@ PaintVehicle.doFillMenuOutsideVehicle = function(playerObj, context, vehicle, te
                     cleanOpt.onSelect = nil
                     cleanOpt.notAvailable = true
                 end
-                if bleach and bleach:getCurrentUses() > 0 then
+                if bleach and bleach:getThirstChange() > 0.05 then
                     desc_clean = desc_clean .. PaintVehicle.ghs..getText("Tooltip_Item_Bleach") .. " <LINE> "
                 else
                     desc_clean = desc_clean .. PaintVehicle.bhs..getText("Tooltip_Item_Bleach") .. " <LINE> "
@@ -131,53 +131,54 @@ PaintVehicle.doFillMenuOutsideVehicle = function(playerObj, context, vehicle, te
             end
         end
 
-        -- DO NOT paint full car, in the end of day, it is not reasonable.
-        -- -- Paint car
+        -- Paint car
 
-        -- if playerObj:getPerkLevel(Perks.Woodwork) < 10 and not isDebugEnabled() then
-        --     return
-        -- end
+        if playerObj:getPerkLevel(Perks.Woodwork) < 10 and 
+           playerObj:getPerkLevel(Perks.Mechanics) < 6 and 
+           not isDebugEnabled() then
+            return
+        end
 
-        -- for k, v in pairs(paintTable) do
-        --     local paintBrush = playerInv:getFirstTypeRecurse("Paintbrush")
-        --     local paintCan = playerInv:getFirstTypeRecurse(k)
-        --     local uses = 10
+        for k, v in pairs(paintTable) do
+            local paintBrush = playerInv:getFirstTypeRecurse("Paintbrush")
+            local paintCan = playerInv:getFirstTypeRecurse(k)
+            local uses = 10
             
-        --     local opt = subMenu:addOption(getText(k), playerObj, PaintVehicle.paintVehicle, vehicle, v, paintBrush, paintCan, uses)
-        --     opt.toolTip = ISWorldObjectContextMenu.addToolTip()
-        --     opt.toolTip:setName(getText(k))
+            local opt = subMenu:addOption(getText(k), playerObj, PaintVehicle.paintVehicle, vehicle, v, paintBrush, paintCan, uses)
+            opt.toolTip = ISWorldObjectContextMenu.addToolTip()
+            opt.toolTip:setName(getText(k))
             
-        --     local tooltip_desc = getText("Tooltip_Vehicle_PAINT") .. "<LINE><LINE>"
+            local tooltip_desc = getText("Tooltip_Vehicle_PAINT") .. "<LINE><LINE>"
 
-        --     if paintBrush then
-        --         tooltip_desc = tooltip_desc .. PaintVehicle.ghs .. getText("Tooltip_Item_Paintbrush") .. " <LINE>"
-        --     else
-        --         tooltip_desc = tooltip_desc .. PaintVehicle.bhs .. getText("Tooltip_Item_Paintbrush") .. " <LINE>"
-        --         opt.onSelect = nil
-        --         opt.notAvailable = true
-        --     end
+            if paintBrush then
+                tooltip_desc = tooltip_desc .. PaintVehicle.ghs .. getText("Tooltip_Item_Paintbrush") .. " <LINE>"
+            else
+                tooltip_desc = tooltip_desc .. PaintVehicle.bhs .. getText("Tooltip_Item_Paintbrush") .. " <LINE>"
+                opt.onSelect = nil
+                opt.notAvailable = true
+            end
 
-        --     local have_uses = 0
-        --     if paintCan then
-        --         have_uses = math.floor(paintCan:getCurrentUses() * 10)
-        --     end
+            local have_uses = 0
+            if paintCan then
+                have_uses = round(paintCan:getUsedDelta() * 10)
+            end
             
-        --     if paintCan and have_uses >= uses then
-        --         tooltip_desc = tooltip_desc .. PaintVehicle.ghs .. getText("Tooltip_Item_"..k)
-        --         tooltip_desc = tooltip_desc .. " " .. have_uses .."/" .. uses .. " unit <LINE>"
-        --     else
-        --         tooltip_desc = tooltip_desc .. PaintVehicle.bhs .. getText("Tooltip_Item_"..k)
-        --         tooltip_desc = tooltip_desc .. " " .. have_uses .."/" .. uses .. " unit <LINE>"
-        --         opt.onSelect = nil
-        --         opt.notAvailable = true
-        --     end
+            if paintCan and have_uses >= uses then
+                tooltip_desc = tooltip_desc .. PaintVehicle.ghs .. getText("Tooltip_Item_"..k)
+                tooltip_desc = tooltip_desc .. " " .. have_uses .."/" .. uses .. " unit <LINE>"
+            else
+                tooltip_desc = tooltip_desc .. PaintVehicle.bhs .. getText("Tooltip_Item_"..k)
+                tooltip_desc = tooltip_desc .. " " .. have_uses .."/" .. uses .. " unit <LINE>"
+                opt.onSelect = nil
+                opt.notAvailable = true
+            end
 
-        --     opt.toolTip.description = tooltip_desc
+            opt.toolTip.description = tooltip_desc
 
-        --     if not opt.notAvailable then
-        --         subMenuAvailable = true
-        --     end
-        -- end
+            if not opt.notAvailable then
+                subMenuAvailable = true
+            end
+        end
 
         if not subMenuAvailable then
             paintMenuOpt.notAvailable = true
