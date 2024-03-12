@@ -42,7 +42,7 @@ PaintVehicle.paintWords = function(playerObj, vehicle, newSkinIndex, paintBrush,
         ISWorldObjectContextMenu.transferIfNeeded(playerObj, paintBrush)
         ISWorldObjectContextMenu.transferIfNeeded(playerObj, paintCan)
         ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, "Engine"))
-        ISTimedActionQueue.add(ISPaintVehicleAction:new(playerObj, vehicle, "Engine", newSkinIndex, paintCan, false))
+        ISTimedActionQueue.add(ISPaintVehicleAction:new(playerObj, vehicle, "Engine", newSkinIndex, paintCan))
     end
 end
 
@@ -51,7 +51,7 @@ PaintVehicle.cleanWords = function(playerObj, vehicle, newSkinIndex, sponge, ble
         ISWorldObjectContextMenu.transferIfNeeded(playerObj, sponge)
         ISWorldObjectContextMenu.transferIfNeeded(playerObj, bleach)
         ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, "Engine"))
-        ISTimedActionQueue.add(ISPaintVehicleAction:new(playerObj, vehicle, "Engine", newSkinIndex, bleach, true))
+        ISTimedActionQueue.add(ISPaintVehicleAction:new(playerObj, vehicle, "Engine", newSkinIndex, bleach))
     end
 end
 
@@ -92,7 +92,7 @@ PaintVehicle.doFillMenuOutsideVehicle = function(playerObj, context, vehicle, te
                 local have_uses = 0
                 
                 if paintCan then
-                    have_uses = math.floor(paintCan:getCurrentUses() * 10) -- less 1 unit, otherwise will be the other item as empty.
+                    have_uses = round(paintCan:getUsedDelta() * 10) -- less 1 unit, otherwise will be the other item as empty.
                     desc_write = desc_write .. PaintVehicle.ghs..getText("Tooltip_Item_"..graffitiType) .. " ".. have_uses .."/1 unit <LINE> "
                 else
                     desc_write = desc_write .. PaintVehicle.bhs..getText("Tooltip_Item_"..graffitiType) .. " ".. have_uses .."/1 unit <LINE> "
