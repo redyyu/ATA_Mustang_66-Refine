@@ -4,10 +4,10 @@ module Base
         template! = ATAMustang66,
 
         skin {
-            texture = ATAMustang66/vehicle_white,
+            texture = ATAMustang66/vehicle_black,
         }
         skin {
-            texture = ATAMustang66/vehicle_white_s,
+            texture = ATAMustang66/vehicle_black_s,
         }
 
         skin {
@@ -18,38 +18,10 @@ module Base
         }
 
         skin {
-            texture = ATAMustang66/vehicle_black,
+            texture = ATAMustang66/vehicle_white,
         }
         skin {
-            texture = ATAMustang66/vehicle_black_s,
-        }
-
-        skin {
-            texture = ATAMustang66/vehicle_brown,
-        }
-        skin {
-            texture = ATAMustang66/vehicle_brown_s,
-        }
-
-        skin {
-            texture = ATAMustang66/vehicle_lightbrown,
-        }
-        skin {
-            texture = ATAMustang66/vehicle_lightbrown_s,
-        }
-
-        skin {
-            texture = ATAMustang66/vehicle_yellow,
-        }
-        skin {
-            texture = ATAMustang66/vehicle_yellow_s,
-        }
-
-        skin {
-            texture = ATAMustang66/vehicle_orange,
-        }
-        skin {
-            texture = ATAMustang66/vehicle_orange_s,
+            texture = ATAMustang66/vehicle_white_s,
         }
 
         skin {
@@ -60,24 +32,52 @@ module Base
         }
 
         skin {
-            texture = ATAMustang66/vehicle_pink,
+            texture = ATAMustang66/vehicle_orange,
         }
         skin {
-            texture = ATAMustang66/vehicle_pink_s,
-        }
-
-        skin {
-            texture = ATAMustang66/vehicle_purple,
-        }
-        skin {
-            texture = ATAMustang66/vehicle_purple_s,
+            texture = ATAMustang66/vehicle_orange_s,
         }
 
         skin {
-            texture = ATAMustang66/vehicle_blue,
+            texture = ATAMustang66/vehicle_yellow,
         }
         skin {
-            texture = ATAMustang66/vehicle_blue_s,
+            texture = ATAMustang66/vehicle_yellow_s,
+        }
+
+        skin {
+            texture = ATAMustang66/vehicle_lightbrown,
+        }
+        skin {
+            texture = ATAMustang66/vehicle_lightbrown_s,
+        }
+
+        skin {
+            texture = ATAMustang66/vehicle_brown,
+        }
+        skin {
+            texture = ATAMustang66/vehicle_brown_s,
+        }
+
+        skin {
+            texture = ATAMustang66/vehicle_green,
+        }
+        skin {
+            texture = ATAMustang66/vehicle_green_s,
+        }
+
+        skin {
+            texture = ATAMustang66/vehicle_turquoise,
+        }
+        skin {
+            texture = ATAMustang66/vehicle_turquoise_s,
+        }
+        
+        skin {
+            texture = ATAMustang66/vehicle_cyan,
+        }
+        skin {
+            texture = ATAMustang66/vehicle_cyan_s,
         }
 
         skin {
@@ -88,24 +88,24 @@ module Base
         }
 
         skin {
-            texture = ATAMustang66/vehicle_cyan,
+            texture = ATAMustang66/vehicle_blue,
         }
         skin {
-            texture = ATAMustang66/vehicle_cyan_s,
-        }
-
-        skin {
-            texture = ATAMustang66/vehicle_turquoise,
-        }
-        skin {
-            texture = ATAMustang66/vehicle_turquoise_s,
+            texture = ATAMustang66/vehicle_blue_s,
         }
 
         skin {
-            texture = ATAMustang66/vehicle_green,
+            texture = ATAMustang66/vehicle_purple,
         }
         skin {
-            texture = ATAMustang66/vehicle_green_s,
+            texture = ATAMustang66/vehicle_purple_s,
+        }
+
+        skin {
+            texture = ATAMustang66/vehicle_pink,
+        }
+        skin {
+            texture = ATAMustang66/vehicle_pink_s,
         }
 
         engineForce = 5000,
@@ -123,10 +123,10 @@ module Base
         }
 
         skin {
-            texture = ATAMustang66/vehicle_white,
+            texture = ATAMustang66/vehicle_black,
         }
         skin {
-            texture = ATAMustang66/vehicle_white_s,
+            texture = ATAMustang66/vehicle_black_s,
         }
 
         skin {
@@ -137,38 +137,10 @@ module Base
         }
 
         skin {
-            texture = ATAMustang66/vehicle_black,
+            texture = ATAMustang66/vehicle_white,
         }
         skin {
-            texture = ATAMustang66/vehicle_black_s,
-        }
-
-        skin {
-            texture = ATAMustang66/vehicle_brown,
-        }
-        skin {
-            texture = ATAMustang66/vehicle_brown_s,
-        }
-
-        skin {
-            texture = ATAMustang66/vehicle_lightbrown,
-        }
-        skin {
-            texture = ATAMustang66/vehicle_lightbrown_s,
-        }
-
-        skin {
-            texture = ATAMustang66/vehicle_yellow,
-        }
-        skin {
-            texture = ATAMustang66/vehicle_yellow_s,
-        }
-
-        skin {
-            texture = ATAMustang66/vehicle_orange,
-        }
-        skin {
-            texture = ATAMustang66/vehicle_orange_s,
+            texture = ATAMustang66/vehicle_white_s,
         }
 
         skin {
@@ -179,24 +151,52 @@ module Base
         }
 
         skin {
-            texture = ATAMustang66/vehicle_pink,
+            texture = ATAMustang66/vehicle_orange,
         }
         skin {
-            texture = ATAMustang66/vehicle_pink_s,
-        }
-
-        skin {
-            texture = ATAMustang66/vehicle_purple,
-        }
-        skin {
-            texture = ATAMustang66/vehicle_purple_s,
+            texture = ATAMustang66/vehicle_orange_s,
         }
 
         skin {
-            texture = ATAMustang66/vehicle_blue,
+            texture = ATAMustang66/vehicle_yellow,
         }
         skin {
-            texture = ATAMustang66/vehicle_blue_s,
+            texture = ATAMustang66/vehicle_yellow_s,
+        }
+
+        skin {
+            texture = ATAMustang66/vehicle_lightbrown,
+        }
+        skin {
+            texture = ATAMustang66/vehicle_lightbrown_s,
+        }
+
+        skin {
+            texture = ATAMustang66/vehicle_brown,
+        }
+        skin {
+            texture = ATAMustang66/vehicle_brown_s,
+        }
+
+        skin {
+            texture = ATAMustang66/vehicle_green,
+        }
+        skin {
+            texture = ATAMustang66/vehicle_green_s,
+        }
+
+        skin {
+            texture = ATAMustang66/vehicle_turquoise,
+        }
+        skin {
+            texture = ATAMustang66/vehicle_turquoise_s,
+        }
+        
+        skin {
+            texture = ATAMustang66/vehicle_cyan,
+        }
+        skin {
+            texture = ATAMustang66/vehicle_cyan_s,
         }
 
         skin {
@@ -207,24 +207,24 @@ module Base
         }
 
         skin {
-            texture = ATAMustang66/vehicle_cyan,
+            texture = ATAMustang66/vehicle_blue,
         }
         skin {
-            texture = ATAMustang66/vehicle_cyan_s,
-        }
-
-        skin {
-            texture = ATAMustang66/vehicle_turquoise,
-        }
-        skin {
-            texture = ATAMustang66/vehicle_turquoise_s,
+            texture = ATAMustang66/vehicle_blue_s,
         }
 
         skin {
-            texture = ATAMustang66/vehicle_green,
+            texture = ATAMustang66/vehicle_purple,
         }
         skin {
-            texture = ATAMustang66/vehicle_green_s,
+            texture = ATAMustang66/vehicle_purple_s,
+        }
+
+        skin {
+            texture = ATAMustang66/vehicle_pink,
+        }
+        skin {
+            texture = ATAMustang66/vehicle_pink_s,
         }
 
         engineForce = 6000,
