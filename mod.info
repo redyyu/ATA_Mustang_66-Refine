@@ -1,4 +1,6 @@
 name=Autotsar Tuning Atelier - Fjord Mustard '66 v.1.01 Refine
 id=ATA_Mustang_66_Refine
-require=tsarslib
+require=tsarslib_refine
 poster=preview.png
+description=If you have "tsarslib_refine" glowing red, then you do not have the obligatory "Tsar's Common Library Refine" mod installed. The link to it can be found on the mod page under "REQUIRED ITEMS". The best place to find answers to all your questions is our Discord server: discord.gg/xkCEcwGZMW
+url=
