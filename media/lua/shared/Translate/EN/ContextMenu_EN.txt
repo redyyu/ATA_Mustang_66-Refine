@@ -2,5 +2,5 @@ ContextMenu_EN = {
   /* Other translation is in tsarslib */
 
   ContextMenu_Vehicle_Write_STRAYS = "Write «STRAYS»"
-  ContextMenu_Vehicle_Clean_STRAYS = "Clean «STRAYS»",
+  ContextMenu_Vehicle_Clean_STRAYS = "Clean «STRAYS»"
 }
