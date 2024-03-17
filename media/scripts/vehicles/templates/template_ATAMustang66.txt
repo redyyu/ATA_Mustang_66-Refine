@@ -444,7 +444,7 @@ module Base
         template! = ATAMustang66_other,
         
         template = ATA2Protection/part/ATA2ProtectionWheels,
-        template = ATA2SkinControl/part/ATA2NoSpawnEvenTextures,
+        template = ATA2SkinControl/part/ATA2NoSpawnEvenTextures, /* control by tsarslib, make sure only spawn SkinIndex %2 = 0 */
         
         attachment trailer
         {

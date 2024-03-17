@@ -25,17 +25,17 @@ VehicleZoneDistribution = VehicleZoneDistribution or {};
 -- VehicleZoneDistribution.trailerpark.vehicles["Base.ATAMustang66"] = {index = -1, spawnChance = 0.5}
 -- VehicleZoneDistribution.trailerpark.vehicles["Base.ATAMustang66Custom"] = {index = -1, spawnChance = 0.5}
 
-VehicleZoneDistribution.parkingstall.vehicles["Base.ATAMustang66"] = {index = -1, spawnChance = 1}
-VehicleZoneDistribution.parkingstall.vehicles["Base.ATAMustang66Custom"] = {index = -1, spawnChance = 1}
+VehicleZoneDistribution.parkingstall.vehicles["Base.ATAMustang66"] = {index = -1, spawnChance = 1000}
+VehicleZoneDistribution.parkingstall.vehicles["Base.ATAMustang66Custom"] = {index = -1, spawnChance = 1000}
 
-VehicleZoneDistribution.good.vehicles["Base.ATAMustang66"] = {index = -1, spawnChance = 2}
-VehicleZoneDistribution.good.vehicles["Base.ATAMustang66Custom"] = {index = -1, spawnChance = 2}
+VehicleZoneDistribution.good.vehicles["Base.ATAMustang66"] = {index = -1, spawnChance = 2000}
+VehicleZoneDistribution.good.vehicles["Base.ATAMustang66Custom"] = {index = -1, spawnChance = 2000}
 
-VehicleZoneDistribution.sport.vehicles["Base.ATAMustang66"] = {index = -1, spawnChance = 5}
-VehicleZoneDistribution.sport.vehicles["Base.ATAMustang66Custom"] = {index = -1, spawnChance = 5}
+VehicleZoneDistribution.sport.vehicles["Base.ATAMustang66"] = {index = -1, spawnChance = 5000}
+VehicleZoneDistribution.sport.vehicles["Base.ATAMustang66Custom"] = {index = -1, spawnChance = 5000}
 
-VehicleZoneDistribution.junkyard.vehicles["Base.ATAMustang66"] = {index = -1, spawnChance = 1}
-VehicleZoneDistribution.junkyard.vehicles["Base.ATAMustang66Custom"] = {index = -1, spawnChance = 1}
+VehicleZoneDistribution.junkyard.vehicles["Base.ATAMustang66"] = {index = -1, spawnChance = 1000}
+VehicleZoneDistribution.junkyard.vehicles["Base.ATAMustang66Custom"] = {index = -1, spawnChance = 1000}
 
 VehicleZoneDistribution.trafficjamw.vehicles["Base.ATAMustang66"] = {index = -1, spawnChance = 0.5}
 VehicleZoneDistribution.trafficjamw.vehicles["Base.ATAMustang66Custom"] = {index = -1, spawnChance = 0.5}
