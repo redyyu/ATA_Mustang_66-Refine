@@ -141,7 +141,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2Bumper"] = {
                 MetalWelding = 2,
             },
             result = "auto",
-            time = 60,
+            time = 30,
         }
     }
 }
