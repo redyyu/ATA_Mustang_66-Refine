@@ -404,7 +404,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2RoofBase"] = {
             },
             result = 'auto',
             requireUninstalled = {"ATARoofLightLeft", "ATARoofLightRight", "ATARoofLightFront", "ATARoofLightRear"},
-            time = 65,
+            time = 35,
         }
     }
 }
@@ -469,7 +469,7 @@ NewCarTuningTable["ATAMustang66"].parts["ATA2InteractiveTrunkRoofRack"] = {
                 MetalWelding = 2,
             },
             result = "auto",
-            time = 40,
+            time = 35,
         }
     }
 }
