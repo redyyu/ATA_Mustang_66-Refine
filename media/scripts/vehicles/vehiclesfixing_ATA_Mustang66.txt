@@ -1,51 +1,60 @@
 module Base
 {
 
-	/** 
-		'ConditionModifier' option could be remove, default = 1.
-		also the first fixer seems gain more effective.
+    /** 
+        'ConditionModifier' option could be remove, default = 1.
+        also the first fixer seems gain more effective.
     **/
 
-  	fixing Fix Mustang66 Hood Welding {
-		Require : ATAMustang66REngineDoor3;ATAMustang66MEngineDoor3,
-		ConditionModifier : 0.8,
-		
-		Fixer : SheetMetal; MetalWelding=4;Mechanics=3,
-		Fixer : SmallSheetMetal=2; MetalWelding=3;Mechanics=2,
-	}
+      fixing Fix Mustang66 Hood Welding {
+        Require : ATAMustang66REngineDoor3;ATAMustang66MEngineDoor3,
+        ConditionModifier : 0.8,
+        
+        Fixer : SheetMetal; MetalWelding=4;Mechanics=3,
+        Fixer : SmallSheetMetal=2; MetalWelding=3;Mechanics=2,
+    }
 
-	fixing Fix Mustang66 Hood {
-		Require : ATAMustang66REngineDoor3;ATAMustang66MEngineDoor3,
-		GlobalItem : Screws=8,
-		ConditionModifier : 0.5,
+    fixing Fix Mustang66 Hood {
+        Require : ATAMustang66REngineDoor3;ATAMustang66MEngineDoor3,
+        GlobalItem : Screws=8,
+        ConditionModifier : 0.5,
 
-		Fixer : SheetMetal; Mechanics=2,
-	}
+        Fixer : SheetMetal; Mechanics=2,
+    }
 
-	fixing Fix Mustang66 Trunk Lid Welding {
-		Require : ATAMustang66TrunkDoor3,
-		GlobalItem : BlowTorch=2,
-		ConditionModifier : 1.2,
+    fixing Fix Mustang66 Trunk Lid Welding {
+        Require : ATAMustang66TrunkDoor3,
+        GlobalItem : BlowTorch=2,
+        ConditionModifier : 1.2,
 
-		Fixer : SheetMetal; MetalWelding=4;Mechanics=3,
-		Fixer : SmallSheetMetal=2; MetalWelding=3;Mechanics=2,
+        Fixer : SheetMetal; MetalWelding=4;Mechanics=3,
+        Fixer : SmallSheetMetal=2; MetalWelding=3;Mechanics=2,
     }
 
     fixing Fix Mustang66 Trunk Lid {
-    	Require : ATAMustang66TrunkDoor3,
-		GlobalItem : Screws=8,
-		ConditionModifier : 0.5,
+        Require : ATAMustang66TrunkDoor3,
+        GlobalItem : Screws=8,
+        ConditionModifier : 0.5,
 
-    	Fixer : SheetMetal; Mechanics=2,
-	}
+        Fixer : SheetMetal; Mechanics=2,
+    }
 
-	fixing Fix Mustang66 Bullbar Welding {
-		Require : ATAMustang66BullbarItem,
-		GlobalItem : BlowTorch=2,
-		ConditionModifier : 1.2,
+    fixing Fix Mustang66 Bullbar Welding {
+        Require : ATAMustang66BullbarItem,
+        GlobalItem : BlowTorch=2,
+        ConditionModifier : 1.2,
 
-		Fixer : MetalPipe=2; MetalWelding=4;Mechanics=3,
-		Fixer : MetalBar=2; MetalWelding=3;Mechanics=2,
-  }
-	
+        Fixer : MetalPipe=2; MetalWelding=4;Mechanics=3,
+        Fixer : MetalBar=2; MetalWelding=3;Mechanics=2,
+    }
+
+    fixing Fix Mustang66 Bumper Welding {
+        Require : ATAMustang66BumperItem;ATAMustang66BumperRearItem,
+        GlobalItem : BlowTorch=2,
+        ConditionModifier : 1.2,
+
+        Fixer : MetalPipe=1; MetalWelding=2;Mechanics=2,
+        Fixer : MetalBar=1; MetalWelding=1;Mechanics=1,
+    }
+    
 }

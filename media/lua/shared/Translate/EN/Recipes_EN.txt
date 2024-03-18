@@ -3,6 +3,6 @@ Recipe_EN = {
     /* Other translation is in tsarslib */
 
     /************ Autotsar Tuning Atelier - Mustang 66 ************/
-    Recipe_Cut_ATAMustang66BullbarItem = "Cut Fjord Mustard '66 - Cut Bullbar with lights",
-    Recipe_Make_ATAMustang66BullbarItem = "Make Fjord Mustard '66 - Cut Bullbar with lights"
+    Recipe_Cut_ATAMustang66BullbarItem = "Cut Fjord Mustard '66 - Bullbar with lights",
+    Recipe_Make_ATAMustang66BullbarItem = "Make Fjord Mustard '66 - Bullbar with lights"
 }

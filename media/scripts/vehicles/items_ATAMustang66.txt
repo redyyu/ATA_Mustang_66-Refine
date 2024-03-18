@@ -42,7 +42,7 @@ module Autotsar
     }
     recipe Cut Mustang66 Front Bumper {
        ATAMustang66BumperItem=1,
-       BlowTorch=4,
+       BlowTorch=2,
        keep WeldingMask,
        Result:MetalPipe=3,
        Time:350.0,
@@ -89,7 +89,7 @@ module Autotsar
     }
     recipe Cut Mustang66 Rear Bumper {
        ATAMustang66BumperRearItem=1,
-       BlowTorch=4,
+       BlowTorch=2,
        keep WeldingMask,
        Result:MetalPipe=3,
        Time:350.0,
@@ -120,7 +120,7 @@ module Autotsar
     }
     recipe Cut ATAMustang66BullbarItem {
        ATABullbar3Item=1,
-       BlowTorch=4,
+       BlowTorch=2,
        keep WeldingMask,
        Result:MetalPipe=6,
        Time:350.0,
@@ -174,7 +174,7 @@ module Autotsar
 
     recipe Cut Mustang66 Hood {
        ATAMustang66REngineDoor3/ATAMustang66MEngineDoor3,
-       BlowTorch=4,
+       BlowTorch=2,
        keep WeldingMask,
        Result:SheetMetal=6,
        Time:350.0,
@@ -206,7 +206,7 @@ module Autotsar
 
     recipe Cut Mustang66 Trunk Lid {
        ATAMustang66TrunkDoor3,
-       BlowTorch=4,
+       BlowTorch=2,
        keep WeldingMask,
        Result:SheetMetal=5,
        Time:350.0,
