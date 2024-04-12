@@ -53,23 +53,6 @@ module Autotsar
        NeedToBeLearn: false,
     }
 
-    recipe Make ATAMustang66BullbarItem {
-        ATAMustang66BumperItem=1,
-        MetalPipe = 4,
-        SmallSheetMetal = 4,
-        WeldingRods = 4,
-        BlowTorch = 5,
-        keep WeldingMask,
-        
-        Result: ATAMustang66BullbarItem,
-        Time: 600.0,
-        Category: Tuning,
-        SkillRequired: MetalWelding=5,
-        OnCreate: Recipe.OnCreate.transmitFirstItemCondition,
-        OnGiveXP: Recipe.OnGiveXP.MetalWelding10,
-        NeedToBeLearn: false,
-    }
-
     model ATAMustang66BumperRear_Ground {
         mesh = WorldItems/ATA_Datsun_Mustang_Items|Bullbar_Rear1,
         texture = WorldItems/ATA_Mustang_bumpers,
@@ -117,6 +100,23 @@ module Autotsar
         MechanicsItem = TRUE,
         Tooltip = Tooltip_item_tuning,
         WorldStaticModel = Autotsar.ATAMustang66Bullbar_Ground,
+    }
+    recipe Make ATAMustang66BullbarItem {
+        ATAMustang66BumperItem=1,
+        MetalPipe = 4,
+        SmallSheetMetal = 4,
+        WeldingRods = 4,
+        Torch = 5,
+        BlowTorch = 5,
+        keep WeldingMask,
+        
+        Result: ATAMustang66BullbarItem,
+        Time: 600.0,
+        Category: Tuning,
+        SkillRequired: MetalWelding=5;Electricity=6;Mechanics=6,
+        OnCreate: Recipe.OnCreate.transmitFirstItemCondition,
+        OnGiveXP: Recipe.OnGiveXP.MetalWelding10,
+        NeedToBeLearn: false,
     }
     recipe Cut ATAMustang66BullbarItem {
        ATABullbar3Item=1,
