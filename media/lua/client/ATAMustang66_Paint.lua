@@ -18,7 +18,7 @@ local function doFillMenuOutsideVehicle(playerObj, context, vehicle, test)
         
         local paintMenuOpt, paintSubMenu = PaintVehicle.getOrCreatePaintMenu(context)
         local menuAvailable = false
-        
+
         if (vehicle:getSkinIndex()%2) == 0 then
             menuAvailable = PaintVehicle.createPaintMenuOpt(paintSubMenu,
                                                             playerObj,
